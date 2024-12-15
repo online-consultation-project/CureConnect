@@ -57,14 +57,6 @@ const RouteComp = () => {
        
       </Route>
 
-
-
-
-
-      {/* <Route path="/headpart" element={<Steps/>} /> */}
-
-      {/* <Route path="/deliverypopup" element={<DeliveryPopup />} /> */}
-
       {/* Medicine section */}
       <Route path="/mediproduct" element={<ProductCards />} />
       <Route path="/medidetials" element={<ProductDescription />} />
@@ -78,24 +70,3 @@ const RouteComp = () => {
 
 export default RouteComp;
 
-// <Route path="CureConnect" element={<Home />}>
-// <Route path="CureConnect/finddoctor" element={<Hero />}>
-//   <Route path="CureConnect/finddoctor/doctor" element={<Doctors />} />
-//   <Route path="CureConnect/doctorProfile" element={<DoctorProfile />} />
-//   <Route index element={<About />} />
-//   <Route path="reviews" element={<Reviews />} />
-//   <Route path="businesshours" element={<Business />} />
-// </Route>
-
-// <Route path="avaliableslot" element={<Mainslot />} />
-// <Route path="CureConnect/checkout" element={<BookingForm />} />
-// <Route path="deliverypopup" element={<DeliveryPopup />} />
-
-// {/* Medicine section */}
-// <Route path="mediproduct" element={<ProductCards />} />
-// <Route path="medidetials" element={<ProductDescription />} />
-// <Route path="medicart" element={<CartPage />} />
-// <Route path="info" element={<InfoMap />} />
-// <Route path="termsandconditions" element={<MediTC />} />
-// <Route path="services" element={<Steps />} />
-// </Route>
