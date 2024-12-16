@@ -23,6 +23,7 @@ import AboutUs from "./Components/pages/Aboutus";
 import FindDoctorHome from "./Components/Home/FindDoctorHome";
 import AllCategory from "./Components/Home/AllCategory";
 import FetchDoctorByCategory from "./Components/List of Doctors/DoctorFetchByCategory";
+import ErrorPage from "./404-Error";
 
 const RouteComp = () => {
   return (
@@ -30,6 +31,7 @@ const RouteComp = () => {
      
       <Route path="/register" element={<Signup />} />
       <Route path="/login" element={<Signin />} />
+      <Route path="*" element={<ErrorPage/>}/>
       {/* Doctor section */}
 
       <Route path="/" element={<CureConnect />}>
