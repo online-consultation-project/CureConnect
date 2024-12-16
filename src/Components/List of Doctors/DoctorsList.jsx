@@ -16,6 +16,8 @@ const Doctors = () => {
       availableHours: 2,
       availability: ["Today", "Tomorrow"],
       fees: 400,
+      
+      location: "Anna Nagar",
     },
     {
       image:
@@ -27,6 +29,7 @@ const Doctors = () => {
       availableHours: 6,
       availability: ["Tomorrow"],
       fees: 800,
+      location: "Tamabaram",
     },
     {
       image:
@@ -38,6 +41,7 @@ const Doctors = () => {
       availableHours: 24,
       availability: ["Today", "Next 7 Days"],
       fees: 1500,
+      location: "Avadi",
     },
   ];
 
@@ -67,7 +71,7 @@ const Doctors = () => {
   return (
     <>
       <div>
-        <HeadPart />
+        <HeadPart heading={"Doctors"} />
       </div>
 
       <div className="main w-full h-screen py-5 flex">

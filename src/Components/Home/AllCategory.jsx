@@ -22,9 +22,10 @@ const AllCategory = () => {
         <section>
           <div className="Categoryproduct-1   sm:px-1  mt-5">
             <ProductCategory
-              bgColor={"bg-blue-400"}
+              bgColor={"bg-gradient-to-t from-blue-400 to-blue-600"}
               iconurl={personalcare}
-              category={"Best Sellers in Personal Care"}
+              categoryName={"Best Sellers in Personal Care"}
+              category = {"Mother and Baby Care"}
             />
           </div>
         </section>
@@ -32,9 +33,10 @@ const AllCategory = () => {
         <section>
           <div className="Categoryproduct-2   sm:px-1  mt-5">
             <ProductCategory
-              bgColor={"bg-blue-300"}
+              bgColor={"bg-gradient-to-b from-blue-400 to-blue-600"}
               iconurl={ayurvedic}
-              category={"Ayurvedic & Healthcare "}
+              categoryName={"Ayurvedic & Healthcare "}
+              category = {"Personal Care"}
             />
           </div>
         </section>
@@ -42,45 +44,50 @@ const AllCategory = () => {
         <section>
           <div className="Categoryproduct-3  sm:px-1  mt-5">
             <ProductCategory
-              bgColor={"bg-blue-500"}
+              bgColor={"bg-gradient-to-t from-blue-400 to-blue-600"}
               iconurl={babycare}
-              category={"Baby & Mother Care "}
+              categoryName={"Baby & Mother Care "}
+              category = {"Medical Devices"}
             />
           </div>
         </section>
         <section>
           <div className="Categoryproduct-4  sm:px-1  mt-5">
             <ProductCategory
-              bgColor={"bg-blue-300"}
+              bgColor={"bg-gradient-to-t from-blue-400 to-blue-600"}
               iconurl={medication}
-              category={"Medication "}
+              categoryName={"Medication "}
+              category = {"Mother and Baby Care"}
             />
           </div>
         </section>
         <section>
           <div className="Categoryproduct-5  sm:px-1  mt-5">
             <ProductCategory
-              bgColor={"bg-purple-300"}
+              bgColor={"bg-gradient-to-b from-blue-400 to-blue-600"}
               iconurl={vitamin}
-              category={"Vitamin and Supplements "}
+              categoryName={"Vitamin and Supplements "}
+              category = {"Medical Devices"}
             />
           </div>
         </section>
         <section>
           <div className="Categoryproduct-6  sm:px-1  mt-5">
             <ProductCategory
-              bgColor={"bg-blue-400"}
+              bgColor={"bg-gradient-to-t from-blue-400 to-blue-600"}
               iconurl={device}
-              category={"Devices "}
+              categoryName={"Devices "}
+              category = {"Personal Care"}
             />
           </div>
         </section>
         <section>
           <div className="Categoryproduct-7  sm:px-1  mt-5">
             <ProductCategory
-              bgColor={"bg-blue-500"}
+              bgColor={"bg-gradient-to-b from-blue-400 to-blue-600"}
               iconurl={pet}
-              category={"Pets Care "}
+              categoryName={"Pets Care "}
+              category = {"Mother and Baby Care"}
             />
           </div>
         </section>
