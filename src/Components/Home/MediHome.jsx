@@ -16,7 +16,7 @@ import PopularCategory2 from "../medi-prod-details/PopularCategory-2";
 
 const MedicineHome = () => {
   return (
-    <div className="main min-h-screen">
+    <div className="relative main min-h-screen">
       <section>
         <div className="hero mb-4">
           <MediHero />

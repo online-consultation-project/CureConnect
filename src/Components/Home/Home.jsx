@@ -7,9 +7,9 @@ import Services from "./Specialities/ServicesCard";
 
 const Home = () => {
   return (
-    <div className="main min-h-screen">
+    <div className="relative main min-h-screen">
       <section>
-        <div className="hero mb-5">
+        <div className="hero">
           <MainHero />
         </div>
       </section>

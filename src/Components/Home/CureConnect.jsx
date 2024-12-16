@@ -7,13 +7,13 @@ import Footer from "../Footer";
 const CureConnect = () => {
   return (
     <>
-      <header className="relative w-full ">
+      <header className=" w-full ">
         <Navbarmain />
       </header>
-      <main className=" w-full px-2 ">
+      <main className="relative w-full top-[82px]">
         <Outlet />
       </main>
-      <footer className="w-full">
+      <footer className="relative w-full top-16">
         <Footer />
       </footer>
     </>

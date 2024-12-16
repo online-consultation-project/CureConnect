@@ -20,8 +20,8 @@ const Hero = () => {
   }, [images.length]);
 
   return (
-    <section className="w-full h-[90vh] bg-gray-100  max-sm:h-[500px] flex justify-center items-center">
-      <div className="relative w-full h-full overflow-hidden rounded-b-lg">
+    <section className="w-full h-[95vh] bg-gray-100  max-sm:h-[500px] flex justify-center items-center">
+      <div className="relative w-full h-full overflow-hidden">
         <div
           className="absolute inset-0 w-auto h-auto bg-cover bg-center bg-no-repeat sm:bg-fixed max-sm:bg-top max-sm:bg-cover transition-all duration-500"
           style={{

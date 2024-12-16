@@ -4,7 +4,7 @@ import { AiOutlinePlayCircle } from "react-icons/ai";
 
 const HealthPackage = () => {
   return (
-    <div className="flex flex-wrap lg:flex-nowrap max-md:py-6 py-20 gap-7 items-center bg-white p-4 rounded-lg">
+    <div className="flex flex-wrap lg:flex-nowrap max-md:py-6 py-20 gap-7 items-center p-4 rounded-lg">
       <div className="flex flex-wrap justify-center lg:justify-start">
       <div className="relative overflow-hidden rounded-lg shadow-lg mb-6 lg:mb-0 lg:top-14 lg:left-16 max-md:hidden">
           <img

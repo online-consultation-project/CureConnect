@@ -69,7 +69,6 @@
 
 // export default Navbarmain;
 
-
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import HeaderLogo from "./../../assets/CC_logo3.png";
@@ -99,27 +98,27 @@ const Navbarmain = () => {
   return (
     <>
       <nav
-        className={`fixed top-0 w-full z-50 bg-white shadow-lg px-7 py-4 flex flex-row flex-wrap justify-between items-center gap-5`}
+        className={`fixed top-0 w-full z-50 bg-gray-200 shadow-sm shadow-slate-600 px-7 py-4 h-20 flex flex-row flex-wrap justify-between items-center gap-5`}
       >
         <Link to={"/"}>
-          <div>
+          <div className="max-lg:flex max-lg:justify-center">
             <img
               src={HeaderLogo}
               alt="logo"
-              className="w-32 h-11 cursor-pointer max-sm:w-[120px] max-sm:h-[35px] sm:max-md:w-[150px] sm:max-md:h-[48px]"
+              className="w-[150px] h-11 cursor-pointer max-sm:w-[120px] max-sm:h-[35px] sm:max-md:w-[150px] sm:max-md:h-[48px] "
             />
           </div>
         </Link>
 
         {/* Desktop Menu */}
-        <div className="flex flex-row flex-wrap justify-center gap-10 max-lg:hidden">
+        <div className="flex flex-row flex-wrap justify-center gap-10 max-[900px]:hidden">
           {navItems.map((item, index) => (
             <Link to={item.path} key={index}>
               <span
                 className={`py-2 font-bold px-2 ${
                   item.path === location.pathname
                     ? `bg-gradient-to-r from-blue-900 to-blue-500 text-white hover:border-none rounded`
-                    : `bg-white text-black`
+                    : ` text-black`
                 } hover:border-b-[3px] transition-all duration-150 border-blue-400`}
               >
                 {item.name}
@@ -129,19 +128,26 @@ const Navbarmain = () => {
         </div>
 
         {/* Profile Icon */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 max-[900px]:hidden">
           <IoPersonCircle
             onClick={togglePopup}
-            className="text-gray-700 text-4xl cursor-pointer hover:text-blue-700 transition-all"
+            className="text-gray-700 text-4xl cursor-pointer hover:text-blue-700 transition-all "
             title="Profile"
           />
         </div>
-
-        {/* Mobile Menu Icon */}
+        
+        <div className="flex flex-row gap-6 justify-center items-center min-[900px]:hidden"> 
+        <IoPersonCircle
+            onClick={togglePopup}
+            className="text-gray-700 text-3xl cursor-pointer hover:text-blue-700 transition-all "
+            title="Profile"
+          />
+        
         <IoMenu
           onClick={toggleMobileMenu}
-          className="text-2xl cursor-pointer lg:hidden"
+          className="text-3xl cursor-pointer"
         />
+        </div>
       </nav>
 
       {/* Mobile Menu */}

@@ -57,7 +57,7 @@ const ProductCards = () => {
   const handleAddToCart = (productImage, e) => {};
 
   return (
-    <div className="bg-white h-auto py-4  sm:py-8  lg:px-16 relative">
+    <div className="h-auto py-4  sm:py-8  lg:px-16 relative">
       <Heading title={"Our Products"} />
 
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-sm:gap-1 max-md:gap-4  min-lg:gap-5">

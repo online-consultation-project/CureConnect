@@ -4,12 +4,9 @@ import Signin from "./Components/auth/Signin";
 import Signup from "./Components/auth/Signup";
 import Doctors from "./Components/List of Doctors/DoctorsList";
 import DoctorProfile from "./Components/DoctorProfile/DoctorProfile";
-
 import Reviews from "./Components/DoctorProfile/DoctorInfo/Reviews";
 import Business from "./Components/DoctorProfile/DoctorInfo/Business";
-
 import About from "./Components/DoctorProfile/DoctorInfo/About";
-
 import BookingForm from "./Components/Checkout/CheckOut";
 import Mainslot from "./Components/SlotBooking/Mainslot";
 import ProductDescription from "./Components/medi-prod-details/ProductDescription";

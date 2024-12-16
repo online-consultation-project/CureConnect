@@ -2,7 +2,7 @@ import React from 'react';
 
 const Trust = () => {
   return (
-    <div className="bg-white h-auto flex items-center justify-center lg:px-7 min-md:px-4  md:px-0">
+    <div className="h-auto flex items-center justify-center lg:px-7 min-md:px-4  md:px-0">
       <div className="w-full flex flex-wrap md:flex-nowrap">
         {/* Left Content */}
         <div className="w-full ">
