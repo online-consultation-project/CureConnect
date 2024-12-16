@@ -1,4 +1,14 @@
+import react from "react"
+import { useNavigate } from "react-router-dom";
+
 function SpecialitiesCard({ icon, title, bgImage }) {
+
+  const navigate = useNavigate()
+
+  const handleCategoryClick = () =>{
+    navigate(`/doctorbycetegory?category=${title}`)
+  }
+
   return (
     <div
       className="group relative flex flex-col items-center justify-center p-4 rounded-md shadow-md transition-all duration-300 bg-cover bg-center"
@@ -7,6 +17,7 @@ function SpecialitiesCard({ icon, title, bgImage }) {
         height: "300px",
         borderRadius: "6px",
       }}
+      onClick={() => handleCategoryClick(title)}
     >
         <div className="absolute inset-0 bg-black bg-opacity-70 rounded-md"></div>
         <div className="absolute inset-0 bg-blue-500 opacity-0 group-hover:opacity-90 transition-opacity duration-300 rounded-md"></div>

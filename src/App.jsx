@@ -22,6 +22,7 @@ import Steps from "./Components/Home/steps";
 import AboutUs from "./Components/pages/Aboutus";
 import FindDoctorHome from "./Components/Home/FindDoctorHome";
 import AllCategory from "./Components/Home/AllCategory";
+import FetchDoctorByCategory from "./Components/List of Doctors/DoctorFetchByCategory";
 
 const RouteComp = () => {
   return (
@@ -35,6 +36,7 @@ const RouteComp = () => {
         <Route index element={<Home />} />
 
         <Route path="finddoctor" element={<FindDoctorHome/>}/>
+        <Route path="/doctorbycetegory" element={<FetchDoctorByCategory/>}/>
         <Route path="finddoctor/doctors" element={<Doctors />} />
         <Route path="doctorProfile" element={<DoctorProfile />}>
           <Route index element={<About />} />
