@@ -16,7 +16,7 @@ const AboutUs = () => {
     <div className="">
       {/* About Us Section Header */}
       <section>
-      <HeadPart/>
+      <HeadPart heading={"About Us"}/>
       </section>
 
       {/* Main Content Section */}

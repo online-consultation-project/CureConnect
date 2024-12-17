@@ -2,14 +2,11 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import { IoMenu } from "react-icons/io5";
-
-
-
-
+  
 const navItems = [
-  { name: "OverView", path: "/cureconnect/doctorProfile" },
-  { name: "Reviews", path: "/cureconnect/doctorProfile/reviews" },
-  { name: "Business Hours", path: "/cureconnect/doctorProfile/businesshours" },
+  { name: "OverView", path: "doctors/:id" },
+  { name: "Reviews", path: "reviews" },
+  { name: "Business Hours", path: "businesshours" },
 ];
 
 const DocNav = () => {

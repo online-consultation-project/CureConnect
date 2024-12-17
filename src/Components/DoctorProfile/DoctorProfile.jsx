@@ -54,7 +54,7 @@ const DoctorProfile = () => {
   return (
     <>
       <div>
-        <HeadPart />
+        <HeadPart heading={"Doctor Profile"} />
       </div>
 
       <div className="relative w-full h-auto flex flex-col items-center justify-start px-5 lg:px-6">
@@ -91,20 +91,7 @@ const DoctorProfile = () => {
               <FaMapLocationDot />
               <p>Anna Nagar, Chennai</p>
             </div>
-            <div className="flex justify-center lg:justify-start gap-2 flex-wrap">
-              {Array(4)
-                .fill(
-                  "https://doccure.dreamstechnologies.com/react/template/1eb95d47909144cd3761.jpg"
-                )
-                .map((src, index) => (
-                  <img
-                    key={index}
-                    src={src}
-                    className="w-[50px] h-[50px] lg:w-[60px] lg:h-[60px] rounded-lg"
-                    alt={`Clinic ${index + 1}`}
-                  />
-                ))}
-            </div>
+       
           </div>
 
           {/* Doctor Extra Details */}

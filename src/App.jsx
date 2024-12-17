@@ -22,8 +22,8 @@ import Steps from "./Components/Home/steps";
 import AboutUs from "./Components/pages/Aboutus";
 import FindDoctorHome from "./Components/Home/FindDoctorHome";
 import AllCategory from "./Components/Home/AllCategory";
-import FetchDoctorByCategory from "./Components/List of Doctors/DoctorFetchByCategory";
 import ErrorPage from "./404-Error";
+import ContactUs from "./Components/pages/ContactUs";
 
 const RouteComp = () => {
   return (
@@ -48,6 +48,7 @@ const RouteComp = () => {
         <Route path="doctorProfile/avaliableslot" element={<Mainslot />} />
         <Route path="doctorProfile/avaliableslot/checkout"  element={<BookingForm />} />
         <Route path="aboutus" element={<AboutUs/>} />
+        <Route path="contactus" element={<ContactUs/>} />
         <Route path="Profilepopup"  element={<EditProfilePopup />}  />
 
         {/* MEDICINE */}
