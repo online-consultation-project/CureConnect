@@ -24,6 +24,10 @@ import FindDoctorHome from "./Components/Home/FindDoctorHome";
 import AllCategory from "./Components/Home/AllCategory";
 import ErrorPage from "./404-Error";
 import ContactUs from "./Components/pages/ContactUs";
+import PaymentButton from "./Components/auth/payment";
+import Payment from "./Components/auth/payment";
+import BookAppointment from "./Components/SlotBooking/booking.jsx/AppointmentBokking";
+import Confirmation from "./Components/SlotBooking/booking.jsx/Confirmation";
 
 const RouteComp = () => {
   return (
@@ -50,6 +54,8 @@ const RouteComp = () => {
         <Route path="aboutus" element={<AboutUs/>} />
         <Route path="contactus" element={<ContactUs/>} />
         <Route path="Profilepopup"  element={<EditProfilePopup />}  />
+        <Route path="/book-appointment/:doctorId" element={<BookAppointment/>} />
+        <Route path="/confirmation" element={<Confirmation/>}/>
 
         {/* MEDICINE */}
 
