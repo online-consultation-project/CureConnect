@@ -1,14 +1,56 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BiLike } from "react-icons/bi";
 import { FaRegMoneyBillAlt, FaTooth } from "react-icons/fa";
 import { FaMapLocationDot } from "react-icons/fa6";
 import { IoIosStar, IoIosStarHalf } from "react-icons/io";
 import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useParams } from "react-router-dom";
 import HeadPart from "../heroSection/HeadPart";
 import DocNav from "./DoctorInfo/DocNav";
+import axios from "axios";
 
 const DoctorProfile = () => {
+
+  const { _id } = useParams();
+  const [doctorInfo, setDoctorInfo] = useState([]);
+
+  console.log(doctorInfo);
+
+  const getByUpdate = async (_id) => {
+    console.log("getupdate : ", _id);
+    const authToken = localStorage.getItem("token");
+    console.log("token", authToken);
+
+    try {
+      console.log("getupdate");
+
+      await axios
+        .get(`http://localhost:7000/admin/getadmin/user/?_id=${_id}`, {
+          headers: { Authorization: `Bearer ${authToken}` },
+        })
+        .then((res) => {
+          console.log(res.data);
+          setDoctorInfo(res.data);
+        })
+        .catch((err) => {
+          // toast.error(err.response.data.message)
+          console.log(err.response.data.Message);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    if (_id) {
+      // Check if _id is available before calling getByUpdate
+      getByUpdate(_id);
+    }
+  }, [_id]);
+
+
+
+
   return (
     <>
       <div>
@@ -21,7 +63,7 @@ const DoctorProfile = () => {
           {/* Doctor Image */}
           <div className="img-con w-[160px] md:w-[200px] h-[160px] md:h-[200px] flex justify-center items-center shadow-md shadow-slate-600 rounded-md">
             <img
-              src="https://doccure.dreamstechnologies.com/react/template/210634dca875b5880520.jpg"
+              src={`http://localhost:7000/upload/${doctorInfo.profileFileName}`}
               alt="Doctor"
               className="object-cover w-full h-full rounded-md"
             />

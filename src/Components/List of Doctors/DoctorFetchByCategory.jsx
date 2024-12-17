@@ -6,24 +6,24 @@ import { toast } from "react-toastify";
 
 const apiUrl = "http://localhost:7000"
 
-const authToken = localStorage.getItem("token")
-const config = {
-    headers: {
-        "Authorization": `Bearer ${authToken}`
-    }
-}
 
 const FetchDoctorByCategory = () => {
   const [doctors, setDoctors] = useState([]);
   const [searchParams] = useSearchParams();
   const category = searchParams.get("category");
 
+const authToken = localStorage.getItem("token")
+
   console.log(doctors);
   
 
   const fetchDoctors = async () => {
     try {
-      await axios.get(`${apiUrl}/admin/doctors/${category}`,config)
+      await axios.get(`${apiUrl}/admin/doctors/${category}`,{
+        headers: {
+            "Authorization": `Bearer ${authToken}`
+        }
+    })
       .then((res)=>{
             console.log(res.data);
             
@@ -60,7 +60,7 @@ const FetchDoctorByCategory = () => {
               location={doctor.location}
               likes={doctor.likes}
               feedback={doctor.feedback}
-              fees={doctor.fees}
+              consultationFee={doctor.consultationFee}
             />
           ))}
       </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const HeadPart = () => {
+const HeadPart = ({heading}) => {
   return (
     <section className="w-full h-[30vh] bg-gray-100 max-sm:h-[200px] flex justify-center items-center">
       <div className="relative w-full h-full overflow-hidden rounded-b-lg">
@@ -14,7 +14,7 @@ const HeadPart = () => {
 
         <div className="w-full h-full bg-black absolute top-0 bg-opacity-65 flex flex-col justify-center items-center px-20 max-sm:px-5">
           <h1 className="text-xl font-bold sm:text-5xl text-white">
-            Appiontments
+     {heading}
           </h1>
         </div>
       </div>

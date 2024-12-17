@@ -38,9 +38,9 @@ const RouteComp = () => {
         <Route index element={<Home />} />
 
         <Route path="finddoctor" element={<FindDoctorHome/>}/>
-        <Route path="/doctorbycetegory" element={<FetchDoctorByCategory/>}/>
+        <Route path="/doctorbycetegory" element={<Doctors/>}/>
         <Route path="finddoctor/doctors" element={<Doctors />} />
-        <Route path="doctorProfile" element={<DoctorProfile />}>
+        <Route path="/finddoctor/doctors/:_id" element={<DoctorProfile />}>
           <Route index element={<About />} />
           <Route path="reviews" element={<Reviews />} />
           <Route path="businesshours" element={<Business />} />

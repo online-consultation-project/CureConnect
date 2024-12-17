@@ -7,6 +7,7 @@ import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
 import { Link } from 'react-router-dom';
 
 const DoctorCard = ({ 
+  _id,
   image, 
   docName, 
   qualification, 
@@ -20,13 +21,14 @@ const DoctorCard = ({
   sImg4, 
   likes, 
   feedback, 
-  fees 
+  consultationFee, 
 }) => {
   return (
+
     <div className="doc-con w-full h-auto border-2 border-gray-300 rounded-md flex flex-col lg:flex-row justify-evenly items-center p-4 gap-4 shadow-md shadow-slate-400">
       <div className="img-con w-[150px] lg:w-[200px] h-[100px] lg:h-[200px] flex justify-center items-center p-2 shadow-md shadow-slate-600">
         <img
-          src={image}
+        src={`http://localhost:7000/upload/${image}`}
           alt="Doctor"
           className="object-fill w-full h-full rounded-md"
         />
@@ -74,10 +76,10 @@ const DoctorCard = ({
         </div>
         <div className="fee flex items-center gap-2">
           <FaRegMoneyBillAlt />
-          <p className="text-sm">Rs: {fees}</p>
+          <p className="text-sm">Rs: {consultationFee}</p>
         </div>
         <div className="btn-con flex flex-col gap-2 w-full">
-         <Link to={"/cureconnect/doctorProfile"}>
+        <Link to={`${_id}`}> 
          <button className="w-full bg-[#0E82FD] hover:scale-105 transition ease-in-out duration-500  text-white py-2 px-12 rounded-md">
             View Profile
           </button>

@@ -1,64 +1,85 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Filter from "./Filter";
 import DoctorCard from "./DoctorCard";
 import { TbFilterMinus, TbFilterPlus } from "react-icons/tb";
 import HeadPart from "../heroSection/HeadPart";
+import { useSearchParams } from "react-router-dom";
+import { toast } from "react-toastify";
+
+const apiUrl = "http://localhost:7000";
 
 const Doctors = () => {
-  const allDoctors = [
-    {
-      image:
-        "https://doccure.dreamstechnologies.com/react/template/210634dca875b5880520.jpg",
-      docName: "Dr. Darren Elder",
-      qualification: "MDS - Periodontology and Oral Implantology, BDS",
-      gender: "Male",
-      role: "Dentist",
-      availableHours: 2,
-      availability: ["Today", "Tomorrow"],
-      fees: 400,
-      
-      location: "Anna Nagar",
-    },
-    {
-      image:
-        "https://doccure.dreamstechnologies.com/react/template/bc4e8d916b11472fc805.jpg",
-      docName: "Dr. Deborah Angel",
-      qualification: "MBBS, MD - General Medicine, DNB - Cardiology",
-      gender: "Female",
-      role: "Cardiology",
-      availableHours: 6,
-      availability: ["Tomorrow"],
-      fees: 800,
-      location: "Tamabaram",
-    },
-    {
-      image:
-        "https://doccure.dreamstechnologies.com/react/template/9cdf0ed08dfc33e5e94b.jpg",
-      docName: "Dr. Sofia Brient",
-      qualification: "MBBS, MS - General Surgery, MCh - Urology",
-      gender: "Female",
-      role: "Urology",
-      availableHours: 24,
-      availability: ["Today", "Next 7 Days"],
-      fees: 1500,
-      location: "Avadi",
-    },
-  ];
+  const [nearDoctors, setNearDoctors] = useState([]);
+  const [filteredDoctors, setFilteredDoctors] = useState([]);
+  const [isFilterCollapsed, setIsFilterCollapsed] = useState(false);
+  const [searchParams] = useSearchParams();
+  const location = searchParams.get("location");
+  const category = searchParams.get("category");
+  const authToken = localStorage.getItem("token");
 
-  const [filteredDoctors, setFilteredDoctors] = useState(allDoctors);
-  const [isFilterCollapsed, setIsFilterCollapsed] = useState(false); // State to toggle filter width
+
+  const fetchDoctors = async () => {
+    try {
+      const response = await axios.get(`${apiUrl}/admin/neardoctors`, {
+        params: {
+          location, 
+          category,
+        },
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
+      });
+      setNearDoctors(response.data);
+      setFilteredDoctors(response.data);
+    } catch (error) {
+      console.error("Error fetching doctors:", error);
+      toast.error(error.response?.data?.message || "Error fetching doctors");
+    }
+  };
+
+  const fetchDoctorsByCategory = async () => {
+    try {
+      const authTokenInFunction = localStorage.getItem("token");
+      await axios.get(`${apiUrl}/admin/doctors/${category}`,{
+        headers: {
+            "Authorization": `Bearer ${authTokenInFunction}`
+        }
+    })
+      .then((res)=>{
+            console.log(res.data);
+            
+          setFilteredDoctors(res.data)
+      })
+      .catch((err) => {
+          console.log(err);
+          toast.error(err.response.data.message)
+      })
+    } catch (error) {
+      console.error("Error fetching doctors:", error);
+    }
+  };
+
+  useEffect(() => {
+    if (location || category) {
+      fetchDoctors();
+    }
+    // else if (category) {
+    //   fetchDoctorsByCategory()
+    // }
+  }, [location, category]);
 
   const applyFilters = (filters) => {
     const { gender, availability, feeRange, date } = filters;
 
-    const filtered = allDoctors.filter((doctor) => {
+    const filtered = nearDoctors.filter((doctor) => {
       const matchesGender = gender ? doctor.gender === gender : true;
       const matchesAvailability = availability.length
         ? availability.some((a) => doctor.availability.includes(a))
         : true;
       const matchesFee =
-        feeRange && doctor.fees
-          ? doctor.fees >= feeRange[0] && doctor.fees <= feeRange[1]
+        feeRange && doctor.consultationFee
+          ? doctor.consultationFee >= feeRange[0] && doctor.consultationFee <= feeRange[1]
           : true;
       const matchesDate = date ? doctor.availableDates.includes(date) : true;
 
@@ -95,8 +116,19 @@ const Doctors = () => {
             isFilterCollapsed ? "w-full" : "lg:w-[75%]"
           } h-screen overflow-y-auto p-4 space-y-4`}
         >
-          {filteredDoctors.map((doctor, index) => (
-            <DoctorCard key={index} {...doctor} />
+          {filteredDoctors.map((Doctors) => (
+            <DoctorCard
+            {...Doctors}
+              image={Doctors.profileFileName}
+              docName={`${Doctors.firstName} ${Doctors.lastName}`}
+              qualification={`${Doctors.UgDegree}, ${Doctors.PgDegree}`}
+              role={Doctors.category}
+              location={Doctors.location}
+              likes={Doctors.likes}
+              feedback={Doctors.feedback}
+              consultationFee={Doctors.consultationFee}
+              
+            />
           ))}
         </div>
       </div>

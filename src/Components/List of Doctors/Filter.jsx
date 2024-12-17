@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 
 const Filter = ({ onApplyFilters }) => {
-  const [gender, setGender] = useState(null); // For gender filter
-  const [availability, setAvailability] = useState([]); // For availability filter
-  const [feeRange, setFeeRange] = useState(null); // For fee range filter
-  const [date, setDate] = useState(""); // For date filter
+  const [gender, setGender] = useState(null);
+  const [availability, setAvailability] = useState([]);
+  const [feeRange, setFeeRange] = useState(null);
+  const [date, setDate] = useState("");
 
   // Function to apply all filters together
   const applyFilters = () => {

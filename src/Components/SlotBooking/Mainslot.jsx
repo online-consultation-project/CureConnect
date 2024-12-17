@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import Slotbooking from "./Slotbooking";
-import { IoIosStar, IoIosStarHalf } from "react-icons/io";
-import { FaMapLocationDot } from "react-icons/fa6";
 
-import { FaTooth } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 function Mainslot() {
