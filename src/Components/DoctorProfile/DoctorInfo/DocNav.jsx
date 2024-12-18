@@ -1,16 +1,17 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 
 import { IoMenu } from "react-icons/io5";
-  
-const navItems = [
-  { name: "OverView", path: "doctors/:id" },
-  { name: "Reviews", path: "reviews" },
-  { name: "Business Hours", path: "businesshours" },
-];
 
 const DocNav = () => {
   const location = useLocation();
+
+  const { _id } = useParams();
+  const navItems = [
+    { name: "OverView", path: `/finddoctor/doctors/${_id}` },
+    { name: "Reviews", path: `/finddoctor/doctors/${_id}/reviews`},
+    { name: "Business Hours", path: "businesshours" },
+  ];
   return (
     <nav
       className={`w-full h-auto shadow-md px-5 py-4 shadow-slate-300  flex flex-row flex-wrap justify-around items-center `}

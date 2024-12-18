@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaShoppingCart } from 'react-icons/fa'
+import { MdOutlineStarPurple500 } from 'react-icons/md'
 import { RiHeartAddLine } from 'react-icons/ri'
 
 const ProductDesign = ({product}) => {
@@ -33,16 +34,16 @@ const ProductDesign = ({product}) => {
               {product.productName}
             </p>
 
-            {/* <div className="flex items-center mt-2 sm:mt-3">
+            <div className="flex items-center mt-2 sm:mt-3">
               {Array.from({ length: 5 }, (_, i) => (
                 <MdOutlineStarPurple500
                   key={i}
                   className={`text-yellow-500 ${
-                    i >= product.rating ? "text-gray-300" : ""
+                    i >= product.ratings ? "text-gray-300" : ""
                   }`}
                 />
               ))}
-            </div> */}
+            </div>
 
             <div className="mt-3 sm:mt-4 flex items-center space-x-2">
               <div className="text-xs sm:text-sm md:text-lg font-bold text-gray-600">

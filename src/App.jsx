@@ -49,7 +49,7 @@ const RouteComp = () => {
         <Route path="doctorProfile/avaliableslot/checkout"  element={<BookingForm />} />
         <Route path="aboutus" element={<AboutUs/>} />
         <Route path="contactus" element={<ContactUs/>} />
-        <Route path="Profilepopup"  element={<EditProfilePopup />}  />
+        <Route path="Profilepopup/:_id"  element={<EditProfilePopup />}  />
 
         {/* MEDICINE */}
 

@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useParams } from "react-router-dom";
 
 const ReviewForm = ({ doctorName }) => {
+  const { _id } = useParams(); 
   const [formData, setFormData] = useState({
     title: "",
     review: "",
     rating: 0,
+    docId: _id, 
   });
 
   const handleChange = (e) => {
@@ -28,17 +31,34 @@ const ReviewForm = ({ doctorName }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const authToken = localStorage.getItem("token");
+
+    if (!authToken) {
+      toast.error("You need to be logged in to submit a review.");
+      return;
+    }
+
     const reviewData = {
-      doctorName,
-      ...formData,
+      docId: formData.docId, 
+      title: formData.title,
+      review: formData.review,
+      rating: formData.rating,
     };
 
     try {
-      const response = await axios.post("/api/reviews", reviewData);
+      const response = await axios.post(
+        "http://localhost:7000/user/------", 
+        reviewData,
+        {
+          headers: {
+            Authorization: `Bearer ${authToken}`, 
+          },
+        }
+      );
 
-      if (response.status === 200 ) {
+      if (response.status === 200) {
         toast.success("Review submitted successfully!");
-        setFormData({ title: "", review: "", rating: 0 });
+        setFormData({ title: "", review: "", rating: 0, docId: _id }); 
       } else {
         toast.error("Failed to submit review!");
       }
@@ -53,7 +73,8 @@ const ReviewForm = ({ doctorName }) => {
       <div className="rounded-lg shadow-md w-[85%] sm:w-[85%] md:w-[85%] lg:w-[85%]">
         <div className="rounded-lg overflow-hidden border border-gray-300 shadow-md shadow-slate-500 p-6 bg-white">
           <h2 className="text-2xl font-medium mb-6">
-            Write a review for <span className="text-blue-500">{doctorName}</span>
+            Write a review for{" "}
+            <span className="text-blue-500">{doctorName}</span>
           </h2>
 
           <form onSubmit={handleSubmit}>
@@ -98,24 +119,21 @@ const ReviewForm = ({ doctorName }) => {
                     key={star}
                     onClick={() => handleRatingClick(star)}
                     className={`cursor-pointer text-2xl hover:text-yellow-500 ${
-                      formData.rating >= star ? "text-yellow-500" : "text-gray-400"
+                      formData.rating >= star
+                        ? "text-yellow-500"
+                        : "text-gray-400"
                     }`}
                   >
                     ★
                   </span>
                 ))}
               </div>
-              <input type="hidden" name="rating" value={formData.rating} />
             </div>
 
             {/* Terms and Conditions */}
             <div className="mb-4">
               <label className="inline-flex items-center">
-                <input
-                  type="checkbox"
-                  className="form-checkbox"
-                  required
-                />
+                <input type="checkbox" className="form-checkbox" required />
                 <span className="ml-2 text-sm text-gray-700">
                   I have read and accept{" "}
                   <a href="#" className="text-blue-500">
