@@ -73,7 +73,7 @@ const DoctorCard = ({
             </button>
           </Link>
 
-          <Link to={`/book-appointment/${_id}?date=${date}`}>
+          <Link to={`/book-appointment/${_id}`}>
             <button className="w-full bg-[#017516] hover:scale-105 transition ease-in-out duration-500 text-white py-2 px-12 rounded-md">
               Book Appointment
             </button>
