@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { jwtDecode } from "jwt-decode"; // To decode the Google credential response
 import Doctor from "../../assets/young-doctors-with-papers-hallway.jpg";
 import Logo from "../../assets/CC_logo3.png";
+import { Grid, TextField, Button, Typography } from "@mui/material"; // MUI components
 
 const urlApi = "http://localhost:7000/user";
 
@@ -61,9 +62,9 @@ const Login = () => {
       <div className="w-[50%] max-[780px]:w-full max-[440px]:p-7 flex justify-center">
         <GoogleOAuthProvider clientId="124694299923-jvh9t1q6abeh6f2ft1r78l43c7dih7aa.apps.googleusercontent.com">
           <div className="min-h-screen flex flex-col items-center justify-center">
-            <h2 className="text-2xl font-extrabold text-center mb-8 text-blue-900">
+            <Typography variant="h4" component="h2" align="center" color="primary" mb={3}>
               -- Welcome to CureConnect --
-            </h2>
+            </Typography>
 
             <div className="w-full max-w-md p-6 rounded-xl shadow-sm shadow-slate-600 bg-white flex flex-col items-center justify-center">
               <img
@@ -71,35 +72,50 @@ const Login = () => {
                 alt="product icon"
                 className="w-36 h-12 text-center mb-8"
               />
-              {error && <p className="text-red-500">{error}</p>}
+              {error && <Typography color="error">{error}</Typography>}
 
-              {/* Normal Login Form */}
+              {/* Normal Login Form with MUI */}
               <form onSubmit={handleSubmit}>
-                <input
-                  type="email"
-                  placeholder="Email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full p-2 border-2 border-gray-400 rounded mb-6"
-                  required
-                />
-                <input
-                  type="password"
-                  placeholder="Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="w-full p-2 border-2 border-gray-400 rounded mb-6"
-                  required
-                />
-                <button
-                  type="submit"
-                  className="w-full bg-blue-500 text-white p-2 rounded"
-                >
-                  Login
-                </button>
+                <Grid container spacing={2}>
+                  <Grid item xs={12}>
+                    <TextField
+                      fullWidth
+                      label="Email"
+                      type="email"
+                      variant="outlined"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      fullWidth
+                      label="Password"
+                      type="password"
+                      variant="outlined"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Button
+                      type="submit"
+                      fullWidth
+                      variant="contained"
+                      color="primary"
+                      sx={{ padding: "12px" }}
+                    >
+                      Login
+                    </Button>
+                  </Grid>
+                </Grid>
               </form>
 
-              <div className="text-center my-4">OR</div>
+              <Typography variant="body1" align="center" mt={2} mb={2}>
+                OR
+              </Typography>
 
               {/* Google Login */}
               <GoogleLogin
@@ -110,12 +126,12 @@ const Login = () => {
                 text="signin_with"
               />
 
-              <p className="text-center mt-4">
+              <Typography variant="body2" align="center" mt={2}>
                 Don’t have an account?{" "}
-                <Link to="/register" className="text-blue-500">
+                <Link to="/register" style={{ color: "#1E3A8A" }}>
                   Register
                 </Link>
-              </p>
+              </Typography>
             </div>
           </div>
         </GoogleOAuthProvider>

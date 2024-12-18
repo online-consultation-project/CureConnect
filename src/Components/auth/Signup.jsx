@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
-import { jwtDecode } from "jwt-decode"; // Added for decoding Google credential response
+import { jwtDecode } from "jwt-decode"; // Decode the Google credential response
 import { toast } from "react-toastify";
 import Doctor from "../../assets/young-doctors-with-papers-hallway.jpg";
 import Logo from "../../assets/CC_logo3.png";
+import { Grid, TextField, Button, Typography, FormControlLabel, Checkbox } from "@mui/material"; // MUI components
 
 const urlApi = "http://localhost:7000/user";
 
@@ -38,19 +39,13 @@ const Register = () => {
     }
 
     try {
-      const response = await axios
-        .post(`${urlApi}/register`, {
-          username: formData.username,
-          email: formData.email,
-          password: formData.password,
-        })
-        .then((res) => {
-          toast.success(res.data.message);
-          navigate("/login");
-        })
-        .catch((err) => {
-          toast.error(err.response.data.message);
-        });
+      const response = await axios.post(`${urlApi}/register`, {
+        username: formData.username,
+        email: formData.email,
+        password: formData.password,
+      });
+      toast.success(response.data.message);
+      navigate("/login");
     } catch (err) {
       setError(err.response?.data?.message || "Something went wrong.");
     }
@@ -59,11 +54,9 @@ const Register = () => {
   // Handle Google Sign-Up
   const handleGoogleSuccess = async (credentialResponse) => {
     try {
-      // Decode the credential response using jwtDecode
-      const decoded = jwtDecode(credentialResponse);
-
+      const decoded = jwtDecode(credentialResponse.credential);
       const payload = {
-        googleId: decoded.sub, // Unique Google ID
+        googleId: decoded.sub,
         username: decoded.name,
         email: decoded.email,
         picture: decoded.picture,
@@ -79,7 +72,8 @@ const Register = () => {
           toast.error(err.response.data.message);
         });
     } catch (err) {
-      console.log(error);
+      console.log(err);
+      toast.error("Google Sign-Up Failed.");
     }
   };
 
@@ -87,16 +81,17 @@ const Register = () => {
     <div className="w-full flex flex-row max-[780px]:justify-center bg-gray-100">
       <img
         src={Doctor}
-        alt="docotro"
+        alt="doctor"
         className="h-screen w-[50%] max-[780px]:hidden"
       />
 
       <div className="w-[50%] max-[780px]:w-full max-[440px]:p-7 flex justify-center">
         <GoogleOAuthProvider clientId="124694299923-jvh9t1q6abeh6f2ft1r78l43c7dih7aa.apps.googleusercontent.com">
           <div className="min-h-screen flex flex-col items-center justify-center">
-            <h2 className="text-2xl font-extrabold text-center mb-8 text-blue-900">
+            <Typography variant="h4" align="center" color="primary" gutterBottom>
               -- Welcome to CureConnect --
-            </h2>
+            </Typography>
+
             <div className="w-full max-w-md p-6 rounded-xl shadow-sm shadow-slate-600 bg-white flex flex-col items-center justify-center">
               <img
                 src={Logo}
@@ -104,81 +99,103 @@ const Register = () => {
                 className="w-36 h-12 text-center mb-8"
               />
 
-              {error && <p className="text-red-500">{error}</p>}
+              {error && <Typography color="error">{error}</Typography>}
 
+              {/* Registration Form with MUI */}
               <form onSubmit={handleSubmit}>
-                <input
-                  type="text"
-                  name="username"
-                  placeholder="Username"
-                  value={formData.username}
-                  onChange={handleChange}
-                  className="w-full p-2 border-2 border-gray-400 rounded mb-4"
-                  required
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full p-2 border-2 border-gray-400 rounded mb-4"
-                  required
-                />
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  className="w-full p-2 border-2 border-gray-400 rounded mb-4"
-                  required
-                />
-                <input
-                  type="password"
-                  name="confirmPassword"
-                  placeholder="Confirm Password"
-                  value={formData.confirmPassword}
-                  onChange={handleChange}
-                  className="w-full p-2 border-2 border-gray-400 rounded mb-4"
-                  required
-                />
-                <div className="mb-4">
-                  <input
-                    type="checkbox"
-                    name="terms"
-                    checked={formData.terms}
-                    onChange={handleChange}
-                    className="mr-2"
-                  />
-                  I agree to the terms and conditions
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-blue-500 text-white p-2 rounded"
-                >
-                  Register
-                </button>
+                <Grid container spacing={2}>
+                  <Grid item xs={12}>
+                    <TextField
+                      fullWidth
+                      label="Username"
+                      name="username"
+                      variant="outlined"
+                      value={formData.username}
+                      onChange={handleChange}
+                      required
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      fullWidth
+                      label="Email"
+                      name="email"
+                      type="email"
+                      variant="outlined"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      fullWidth
+                      label="Password"
+                      name="password"
+                      type="password"
+                      variant="outlined"
+                      value={formData.password}
+                      onChange={handleChange}
+                      required
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      fullWidth
+                      label="Confirm Password"
+                      name="confirmPassword"
+                      type="password"
+                      variant="outlined"
+                      value={formData.confirmPassword}
+                      onChange={handleChange}
+                      required
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={formData.terms}
+                          onChange={handleChange}
+                          name="terms"
+                        />
+                      }
+                      label="I agree to the terms and conditions"
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Button
+                      type="submit"
+                      fullWidth
+                      variant="contained"
+                      color="primary"
+                      sx={{ padding: "12px" }}
+                    >
+                      Register
+                    </Button>
+                  </Grid>
+                </Grid>
               </form>
 
-              <div className="text-center my-4">OR</div>
+              <Typography variant="body1" align="center" my={2}>
+                OR
+              </Typography>
 
+              {/* Google Login */}
               <GoogleLogin
-                onSuccess={(credentialResponse) =>
-                  handleGoogleSuccess(credentialResponse.credential)
-                }
-                onError={() => setError("Google Sign-Up Failed.")}
+                onSuccess={handleGoogleSuccess}
+                onError={() => toast.error("Google Sign-Up Failed.")}
                 useOneTap
                 shape="pill"
                 text="signup_with"
               />
 
-              <p className="text-center mt-4">
+              <Typography variant="body2" align="center" mt={2}>
                 Already have an account?{" "}
-                <Link to="/login" className="text-blue-500">
+                <Link to="/login" style={{ color: "#1E3A8A" }}>
                   Login
                 </Link>
-              </p>
+              </Typography>
             </div>
           </div>
         </GoogleOAuthProvider>
