@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BiLike } from "react-icons/bi";
 import { FaRegMoneyBillAlt } from "react-icons/fa";
 import { FaMapLocationDot } from "react-icons/fa6";
@@ -19,6 +19,9 @@ const DoctorCard = ({
   feedback,
   consultationFee,
 }) => {
+
+  const [date] = useState(new Date().toISOString().split("T")[0])
+
   return (
     <div className="doc-con w-full h-auto border-2 border-gray-300 rounded-md flex flex-col lg:flex-row justify-evenly items-center p-4 gap-4 shadow-md shadow-slate-400">
       <div className="img-con w-[150px] lg:w-[200px] h-[100px] lg:h-[200px] flex justify-center items-center p-2 shadow-md shadow-slate-600">
@@ -70,9 +73,11 @@ const DoctorCard = ({
             </button>
           </Link>
 
-          <button className="w-full bg-[#017516] hover:scale-105 transition ease-in-out duration-500 text-white py-2 px-12 rounded-md">
-            Book Appointment
-          </button>
+          <Link to={`/book-appointment/${_id}?date=${date}`}>
+            <button className="w-full bg-[#017516] hover:scale-105 transition ease-in-out duration-500 text-white py-2 px-12 rounded-md">
+              Book Appointment
+            </button>
+          </Link>
         </div>
       </div>
     </div>
