@@ -3,7 +3,7 @@ import { FiMapPin, FiSearch } from "react-icons/fi";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 const FindDoctorHeroSection = () => {
-  const [searchQuery, setSearchQuery] = useState("Chennai");
+  const [searchQuery, setSearchQuery] = useState("");
   const [categoryQuery, setCategoryQuery] = useState("");
   const [locationDropdownVisible, setLocationDropdownVisible] = useState(false);
   const [categoryDropdownVisible, setCategoryDropdownVisible] = useState(false);

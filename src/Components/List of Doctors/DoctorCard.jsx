@@ -67,7 +67,7 @@ const DoctorCard = ({
           <p className="text-sm">Rs: {consultationFee}</p>
         </div>
         <div className="btn-con flex flex-col gap-2 w-full">
-          <Link to={`${_id}`}>
+          <Link to={`/finddoctor/doctors/${_id}`}>
             <button className="w-full bg-[#0E82FD] hover:scale-105 transition ease-in-out duration-500  text-white py-2 px-12 rounded-md">
               View Profile
             </button>

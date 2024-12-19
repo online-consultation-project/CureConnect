@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Services = () => {
   const services = [
@@ -7,6 +8,7 @@ const Services = () => {
       title: "Book Appointment",
       subtitle: "Book Now",
       image: "https://img.freepik.com/free-photo/gynecologist-evaluating-pregnancy-with-patient_23-2149353055.jpg?t=st=1732608720~exp=1732612320~hmac=b99f6a1d7956a78ba16cad83aa90db76a4b7e6f6a642f38150b353a65ef9b733&w=740",
+      path: "/finddoctor"
     },
     {
       id: 2,
@@ -27,7 +29,8 @@ const Services = () => {
       <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Our Services</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 w-full ">
         {services.map((service) => (
-          <div
+          <Link to={service.path}>
+            <div
             key={service.id}
             className="relative group w-full h-64 sm:h-72 lg:h-80 rounded-lg overflow-hidden shadow-lg"
           >
@@ -41,6 +44,7 @@ const Services = () => {
               <p className="mt-2 text-sm lg:text-base">{service.subtitle}</p>
             </div>
           </div>
+          </Link>
         ))}
       </div>
     </div>

@@ -15,7 +15,7 @@ const ProductDesign = ({product}) => {
             </div>
 
             <div className="absolute lg:top-2 lg:left-2 bg-green-500 text-white px-2 lg:py-2  rounded-br-xl rounded-tl-md text-xs font-semibold z-20">
-              {  `${product.discount} % OFF`}
+              { `${product.discount} % OFF`}
             </div>
 
             <div className="relative overflow-hidden rounded-md mt-6 py-3">
