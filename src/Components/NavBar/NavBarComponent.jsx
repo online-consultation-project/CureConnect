@@ -96,14 +96,14 @@ const Navbarmain = () => {
               />
               <button
                 onClick={handleLogout}
-                className="text-gray-700 text-xl cursor-pointer hover:text-blue-600 transition-all"
+                className="py-2 font-bold px-2 text-black border-2 border-blue-400 rounded hover:bg-gradient-to-r from-blue-900 to-blue-500 hover:text-white hover:border-white transition-all duration-150"
               >
                 Log out
               </button>
             </>
           ) : (
             <Link to="/login">
-              <span className="py-2 font-bold px-2 text-black border-2 border-blue-400 rounded hover:bg-blue-500 hover:text-white hover:border-white transition-all duration-150">
+              <span className="py-2 font-bold px-2 text-black border-2 border-blue-400 rounded hover:bg-gradient-to-r from-blue-900 to-blue-500 hover:text-white hover:border-white transition-all duration-150">
                 Register / Login
               </span>
             </Link>
