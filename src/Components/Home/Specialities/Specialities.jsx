@@ -7,9 +7,9 @@ import { useNavigate } from "react-router-dom";
 
 const specialities = [
   { title: "Dentist", icon: <FaTooth />, bgImage: "https://img.freepik.com/free-photo/young-female-patient-with-open-mouth-examining-dental-inspection-dentist-office_496169-976.jpg?uid=R162567627&ga=GA1.1.884605993.1731922461&semt=ais_hybrid" },
-  { title: "Neurologist", icon: <FaBrain />, bgImage: "https://img.freepik.com/free-photo/professional-doctor-neuroscience-developing-treatment-neurological-diseases-examining-patient-evolutions-doctor-researcher-adjusting-eeg-headset-analyzing-brain-functions-health-status_482257-16441.jpg?uid=R162567627&ga=GA1.1.884605993.1731922461&semt=ais_hybrid" },
+  { title: "Cardiologist", icon: <FaBrain />, bgImage: "https://img.freepik.com/free-photo/professional-doctor-neuroscience-developing-treatment-neurological-diseases-examining-patient-evolutions-doctor-researcher-adjusting-eeg-headset-analyzing-brain-functions-health-status_482257-16441.jpg?uid=R162567627&ga=GA1.1.884605993.1731922461&semt=ais_hybrid" },
   { title: "Cardiologist", icon: <FaHeartbeat />, bgImage: "https://img.freepik.com/free-photo/nurse-holding-tablet-with-heart-figure-cardiology-diagnosis_482257-24452.jpg?uid=R162567627&ga=GA1.1.884605993.1731922461&semt=ais_hybrid" },
-  { title: "Urology", icon: <FaUserMd />, bgImage: "https://img.freepik.com/free-photo/doctor-explaining-anatomic-model-patient_23-2149351703.jpg?uid=R162567627&ga=GA1.1.884605993.1731922461&semt=ais_hybrid" },
+  { title: "Urologist", icon: <FaUserMd />, bgImage: "https://img.freepik.com/free-photo/doctor-explaining-anatomic-model-patient_23-2149351703.jpg?uid=R162567627&ga=GA1.1.884605993.1731922461&semt=ais_hybrid" },
   { title: "Orthopedic", icon: <FaBone />, bgImage: "https://img.freepik.com/free-photo/chiropractor-provides-aid-patient_482257-90376.jpg?uid=R162567627&ga=GA1.1.884605993.1731922461&semt=ais_hybrid" },
 ];
 

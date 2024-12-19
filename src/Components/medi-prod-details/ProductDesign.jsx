@@ -31,7 +31,7 @@ const ProductDesign = ({product}) => {
             </h2>
 
             <p className="text-xs sm:text-sm text-gray-500 mt-1 sm:mt-2">
-              {product.productName}
+              {product.subDescription}
             </p>
 
             <div className="flex items-center mt-2 sm:mt-3">
