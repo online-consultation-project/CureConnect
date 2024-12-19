@@ -22,6 +22,9 @@ const Navbarmain = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  
+  const userId = localStorage.getItem("userId")
+
 
   useEffect(() => {
     const user = localStorage.getItem("token");
@@ -85,15 +88,17 @@ const Navbarmain = () => {
           ))}
         </div>
 
-        {/* Profile and Logout Icons */}
+        
         <div className="flex items-center gap-4 max-[900px]:hidden">
           {isUserLoggedIn ? (
             <>
-              <IoPersonCircle
-                onClick={togglePopup}
+            <Link to={`/Profilepopup/${userId}`}>
+            <IoPersonCircle
                 className="text-gray-700 text-4xl cursor-pointer hover:text-blue-700 transition-all"
                 title="Profile"
               />
+            </Link>
+            
               <button
                 onClick={handleLogout}
                 className="py-2 font-bold px-2 text-black border-2 border-blue-400 rounded hover:bg-gradient-to-r from-blue-900 to-blue-500 hover:text-white hover:border-white transition-all duration-150"

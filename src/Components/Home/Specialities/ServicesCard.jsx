@@ -21,6 +21,7 @@ const Services = () => {
       title: "Online Medical Shop",
       subtitle: "Buy Medicine",
       image: "https://5.imimg.com/data5/SELLER/Default/2021/3/XN/PD/MN/4656281/online-pharmacy-500x500.jpg",
+      path:"/medicines"
     },
   ];
 
