@@ -127,6 +127,11 @@ const Login = () => {
               />
 
               <Typography variant="body2" align="center" mt={2}>
+                <Link to="/forgotpassword" style={{ color: "#1E3A8A" }}>
+                  Forgot Password
+                </Link>
+              </Typography>
+              <Typography variant="body2" align="center" mt={2}>
                 Don’t have an account?{" "}
                 <Link to="/register" style={{ color: "#1E3A8A" }}>
                   Register

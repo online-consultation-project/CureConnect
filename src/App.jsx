@@ -28,6 +28,7 @@ import PaymentButton from "./Components/auth/payment";
 import Payment from "./Components/auth/payment";
 import BookAppointment from "./Components/SlotBooking/booking.jsx/AppointmentBokking";
 import Confirmation from "./Components/SlotBooking/booking.jsx/Confirmation";
+import ResetPassword from "./Components/auth/ForgotPassword";
 
 const RouteComp = () => {
   return (
@@ -36,6 +37,7 @@ const RouteComp = () => {
       <Route path="/register" element={<Signup />} />
       <Route path="/login" element={<Signin />} />
       <Route path="*" element={<ErrorPage/>}/>
+      <Route path="/forgotpassword" element={<ResetPassword />} />
       {/* Doctor section */}
 
       <Route path="/" element={<CureConnect />}>
