@@ -17,7 +17,7 @@ const Footer = () => {
           {/* Logo and Description */}
           <div className="col-span-2">
             <h1 className="text-3xl font-anton text-blue-600 font-bold">
-              DOCCURE
+              Cure Connect
             </h1>
             <p className="text-black mt-4 text-sm lg:text-base">
               Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -97,7 +97,7 @@ const Footer = () => {
               </li>
               <li className="inline-flex items-center">
                 <FaEnvelope className="mr-2 text-blue-600" />
-                doccure@example.com
+                cureconnect@example.com
               </li>
               <li className="inline-flex items-center">
                 <FaPhone className="mr-2 text-blue-600" />

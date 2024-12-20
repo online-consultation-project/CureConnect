@@ -48,7 +48,7 @@ const ReviewSection = () => {
                 className="flex flex-col sm:flex-row items-start space-x-0 sm:space-x-4 border pb-4 mb-4 bg-white border-gray-300 p-5 rounded-lg"
               >
                 <img
-                  src={`http://localhost:7000/upload/${review.profileFileName}`}
+                  src={`http://localhost:7000/upload/${review.userPic}`}
                   alt={review.userId.username}
                   className="w-16 h-16 sm:w-12 sm:h-12 rounded-full mx-auto sm:mx-0"
                 />
@@ -57,7 +57,7 @@ const ReviewSection = () => {
                 <div className="mt-4 sm:mt-0">
                   <div className="flex justify-between items-center max-md:flex-col">
                     <h3 className="font-semibold text-lg">
-                      {review.userId.username}
+                      {review.userName}
                     </h3>
                     <span className="text-sm max-sm:text-xs text-gray-500">
                       {new Date(review.createdAt).toLocaleDateString()}

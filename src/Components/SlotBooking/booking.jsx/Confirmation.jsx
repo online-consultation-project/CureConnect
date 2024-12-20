@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 import bgImage from "../../../assets/pngwing.com (2).png";
 const Confirmation = () => {
 
@@ -36,7 +36,9 @@ const Confirmation = () => {
    
   </div>
   <div className='px-9' >
-  <button onClick={handleGoHome}  className=' hover:text-blue-600 '>Go to Homepage</button>
+  <Link to={"/"}>
+  <button className=' hover:text-blue-600 '>Go to Homepage</button>
+  </Link>
   </div>
   </>
   );

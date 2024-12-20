@@ -6,14 +6,14 @@ import { useParams } from "react-router-dom";
 
 const ReviewForm = ({ doctorName }) => {
   const { _id } = useParams(); 
-  
+  const userId = localStorage.getItem("userId");  
 
   const [formData, setFormData] = useState({
     title: "",
     review: "",
     rating: 0,
     docId: _id,
-
+     
   });
 
   const handleChange = (e) => {
@@ -50,7 +50,7 @@ const ReviewForm = ({ doctorName }) => {
 
     try {
       const response = await axios.post(
-        `http://localhost:7000/user/reviews`,  
+        "http://localhost:7000/user/reviews",  
         reviewData,
         {
           headers: {
@@ -61,7 +61,7 @@ const ReviewForm = ({ doctorName }) => {
 
       if (response.status === 200) {
         toast.success("Review submitted successfully!");
-        setFormData({ title: "", review: "", rating: 0, }); 
+        setFormData({ title: "", review: "", rating: 0, docId: _id }); 
       } else {
         toast.error("Failed to submit review!");
       }
@@ -134,7 +134,7 @@ const ReviewForm = ({ doctorName }) => {
             </div>
 
            
-            {/* <div className="mb-4">
+            <div className="mb-4">
               <label className="inline-flex items-center">
                 <input type="checkbox" className="form-checkbox" required />
                 <span className="ml-2 text-sm text-gray-700">
@@ -144,7 +144,7 @@ const ReviewForm = ({ doctorName }) => {
                   </a>
                 </span>
               </label>
-            </div> */}
+            </div>
 
             {/* Submit Button */}
             <div className="w-full flex items-center justify-center">
