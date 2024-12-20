@@ -29,6 +29,7 @@ import Payment from "./Components/auth/payment";
 import BookAppointment from "./Components/SlotBooking/booking.jsx/AppointmentBokking";
 import Confirmation from "./Components/SlotBooking/booking.jsx/Confirmation";
 import ResetPassword from "./Components/auth/ForgotPassword";
+import ReviewForm from "./Components/DoctorProfile/DoctorInfo/Reviewform";
 
 const RouteComp = () => {
   return (
@@ -49,6 +50,7 @@ const RouteComp = () => {
         <Route path="/finddoctor/doctors/:_id" element={<DoctorProfile />}>
           <Route index element={<About />} />
           <Route path="reviews" element={<Reviews />} />
+          <Route path="addreviews" element={<ReviewForm />} />
           <Route path="businesshours" element={<Business />} />
         </Route>
         <Route path="doctorProfile/avaliableslot" element={<Mainslot />} />

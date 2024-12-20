@@ -1,6 +1,16 @@
 import React from "react";
 
 const Business = () => {
+ 
+  const currentDate = new Date();
+  
+  
+  const formattedDate = currentDate.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
+
   return (
     <div className="flex justify-center items-center text-black">
       <div className="container mx-auto w-full sm:w-[85%] p-6">
@@ -8,7 +18,7 @@ const Business = () => {
           <div className="flex justify-between items-center px-4 py-2">
             <div className="flex flex-col sm:items-center">
               <span className="font-bold text-lg py-5">Today</span>
-              <span className="text-sm mt-2 sm:mt-0">5 Nov 2019</span>
+              <span className=" font-semibold mt-2 text-lg  sm:mt-0">{formattedDate}</span>
             </div>
             <span className="text-green-400 font-semibold">Open Now</span>
           </div>

@@ -106,7 +106,7 @@ const DoctorProfile = () => {
               <p className="text-base">{`Rs: ${doctorInfo.consultationFee}`}</p>
             </div>
             <div className="btn-con w-full py-6">
-              <Link to={"#"}>
+              <Link to={`/book-appointment/${_id}`}>
                 <button className="w-full bg-[#0E82FD] hover:scale-105 transition ease-in-out duration-500 text-white py-2 px-6 rounded-md">
                   Book Appointment
                 </button>

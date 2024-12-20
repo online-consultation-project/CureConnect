@@ -6,11 +6,14 @@ import { useParams } from "react-router-dom";
 
 const ReviewForm = ({ doctorName }) => {
   const { _id } = useParams(); 
+  const userId = localStorage.getItem("userId");  
+
   const [formData, setFormData] = useState({
     title: "",
     review: "",
     rating: 0,
-    docId: _id, 
+    docId: _id,
+    userId: userId  
   });
 
   const handleChange = (e) => {
@@ -39,7 +42,8 @@ const ReviewForm = ({ doctorName }) => {
     }
 
     const reviewData = {
-      docId: formData.docId, 
+      userId: formData.userId,
+      docId: formData.docId,
       title: formData.title,
       review: formData.review,
       rating: formData.rating,
@@ -47,11 +51,11 @@ const ReviewForm = ({ doctorName }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:7000/user/------", 
+        "http://localhost:7000/user/reviews",  
         reviewData,
         {
           headers: {
-            Authorization: `Bearer ${authToken}`, 
+            Authorization: `Bearer ${authToken}`,
           },
         }
       );
@@ -69,7 +73,7 @@ const ReviewForm = ({ doctorName }) => {
   };
 
   return (
-    <div className="flex justify-center items-center max-h-screen text-black w-full">
+    <div className="flex justify-center items-center max-h-screen text-black w-full py-5">
       <div className="rounded-lg shadow-md w-[85%] sm:w-[85%] md:w-[85%] lg:w-[85%]">
         <div className="rounded-lg overflow-hidden border border-gray-300 shadow-md shadow-slate-500 p-6 bg-white">
           <h2 className="text-2xl font-medium mb-6">
@@ -130,7 +134,7 @@ const ReviewForm = ({ doctorName }) => {
               </div>
             </div>
 
-            {/* Terms and Conditions */}
+           
             <div className="mb-4">
               <label className="inline-flex items-center">
                 <input type="checkbox" className="form-checkbox" required />
@@ -156,7 +160,7 @@ const ReviewForm = ({ doctorName }) => {
         </div>
       </div>
 
-      {/* Toastify Container */}
+  
       <ToastContainer position="top-center" autoClose={3000} />
     </div>
   );

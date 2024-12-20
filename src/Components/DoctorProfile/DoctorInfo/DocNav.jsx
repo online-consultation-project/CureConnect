@@ -10,6 +10,7 @@ const DocNav = () => {
   const navItems = [
     { name: "OverView", path: `/finddoctor/doctors/${_id}` },
     { name: "Reviews", path: `/finddoctor/doctors/${_id}/reviews`},
+    { name: "Add Reviews", path: `/finddoctor/doctors/${_id}/addreviews`},
     { name: "Business Hours", path: `/finddoctor/doctors/${_id}/businesshours` },
   ];
   return (
