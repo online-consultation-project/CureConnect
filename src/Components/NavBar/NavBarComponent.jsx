@@ -1,20 +1,62 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import HeaderLogo from "./../../assets/CC_logo3.png";
-import { IoMenu, IoPersonCircle, IoLogOutOutline } from "react-icons/io5"; // Removed IoCall as it's not used
+import toggleLogo from "./../../assets/CureConnect.png";
+import { IoMenu, IoPersonCircle, IoLogOutOutline } from "react-icons/io5";
 import EditProfilePopup from "../UserProfilePopUp/ProfilePopUp";
 
+// Desktop and mobile nav items
 const navItems = [
   { name: "Home", path: "/" },
   { name: "Find Doctors", path: "/finddoctor" },
   { name: "Medicines", path: "/medicines" },
 ];
 
-const mobileNavItems = [
-  ...navItems, // Keep the existing navItems
-  { name: "Contact Us", path: "/contactus" }, // New item for "Contact Us"
-  { name: "About Us", path: "/aboutus" }, // New item for "About Us"
+const mobilenavItems = [
+  { icon: "LuLayoutDashboard", text: "Home", path: "/" },
+  { icon: "FaStethoscope", text: "Find Doctors", path: "/finddoctor" },
+  { icon: "RiContactsFill", text: "Medicines", path: "/medicines" },
+  { icon: "IoMdTimer", text: "Contact Us", path: "/contactus" },
+  { icon: "MdPreview", text: "About Us", path: "/aboutus" },
+  { icon: "IoLogOutOutline", text: "Logout" },
 ];
+
+const Sidebar = ({ isOpen, toggleSidebar }) => {
+  const location = useLocation();
+  return (
+    <div
+      className={`fixed top-0 left-0 h-full w-64 bg-blue-800 shadow-lg z-50 transform ${
+        isOpen ? "translate-x-0" : "-translate-x-full"
+      } transition-transform duration-300`}
+    >
+      <div className="flex justify-end px-4 pt-2">
+        <button onClick={toggleSidebar} className="text-gray-50 text-2xl">
+          &times;
+        </button>
+      </div>
+      <div className="flex items-center justify-center px-4 pb-4 border-b border-gray-300">
+        <img src={toggleLogo} alt="Logo" className="h-14 w-auto" />
+      </div>
+      <div className="flex flex-col gap-4 pt-4">
+        {mobilenavItems.map((item, index) => (
+          <Link
+            key={index}
+            to={item.path}
+            onClick={toggleSidebar}
+            className={`flex items-center gap-3 pl-5 p-3 hover:bg-blue-500 hover:border-l-8 border-white hover:text-white text-gray-50 ${
+              location.pathname === item.path
+                ? "bg-blue-400 text-white  border-l-8 border-b-white"
+                : ""
+            }`}
+          >
+            {/* Replace item.icon with actual imported icons */}
+            <span>{item.text}</span>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 const Navbarmain = () => {
   const location = useLocation();
@@ -22,9 +64,8 @@ const Navbarmain = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
-  
-  const userId = localStorage.getItem("userId")
 
+  const userId = localStorage.getItem("userId");
 
   useEffect(() => {
     const user = localStorage.getItem("token");
@@ -48,18 +89,14 @@ const Navbarmain = () => {
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   const handleLogout = () => {
-    // Remove user data from localStorage
     localStorage.removeItem("token");
-
-    // Update login state
     setIsUserLoggedIn(false);
-
-    // Redirect to home or login page
-    navigate("/"); // Or redirect to any other page, e.g., home
+    navigate("/"); // Redirect to home or login page
   };
 
   return (
     <>
+      {/* Navbar */}
       <nav className="fixed top-0 w-full z-50 bg-gray-50 shadow-sm shadow-slate-600 px-7 py-4 h-20 flex flex-row flex-wrap justify-between items-center gap-5">
         <Link to={"/"}>
           <div className="max-lg:flex max-lg:justify-center">
@@ -88,17 +125,16 @@ const Navbarmain = () => {
           ))}
         </div>
 
-        
+        {/* Desktop Login/Profile */}
         <div className="flex items-center gap-4 max-[900px]:hidden">
           {isUserLoggedIn ? (
             <>
-            <Link to={`/Profilepopup/${userId}`}>
-            <IoPersonCircle
-                className="text-gray-700 text-4xl cursor-pointer hover:text-blue-700 transition-all"
-                title="Profile"
-              />
-            </Link>
-            
+              <Link to={`/Profilepopup/${userId}`}>
+                <IoPersonCircle
+                  className="text-gray-700 text-4xl cursor-pointer hover:text-blue-700 transition-all"
+                  title="Profile"
+                />
+              </Link>
               <button
                 onClick={handleLogout}
                 className="py-2 font-bold px-2 text-black border-2 border-blue-400 rounded hover:bg-gradient-to-r from-blue-900 to-blue-500 hover:text-white hover:border-white transition-all duration-150"
@@ -140,35 +176,12 @@ const Navbarmain = () => {
         </div>
       </nav>
 
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="fixed top-0 left-0 w-[240px] bg-white shadow-lg z-50 h-full mt-20">
-          <div className="flex flex-col justify-start items-start gap-4 py-4 px-3">
-            {mobileNavItems.map((item, index) => (
-              <Link to={item.path} key={index} onClick={toggleMobileMenu}>
-                <span
-                  className={`py-2 font-bold px-4 ${
-                    item.path === location.pathname
-                      ? "bg-gradient-to-r from-blue-900 to-blue-500 text-white rounded border-l-4 px-14  border-blue-400"
-                      : "bg-white text-black"
-                  } hover:border-b-[3px] transition-all duration-150 border-blue-400`}
-                >
-                  {item.name}
-                </span>
-              </Link>
-            ))}
-
-            {isUserLoggedIn && (
-              <button
-                onClick={handleLogout}
-                className="text-gray-700 font-bold py-1 px-2 hover:text-red-500 w-full text-left"
-              >
-                Logout
-              </button>
-            )}
-          </div>
-        </div>
-      )}
+      {/* Mobile Sidebar */}
+      <Sidebar
+        isOpen={isMobileMenuOpen}
+        toggleSidebar={toggleMobileMenu}
+        handleLogout={handleLogout}
+      />
 
       {/* Profile Popup */}
       {isPopupOpen && <EditProfilePopup togglePopup={togglePopup} />}

@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import ReviewForm from "./Reviewform";
 
 const ReviewSection = () => {
-  const { _id } = useParams(); // Get the docId from the URL parameters
+  const { _id } = useParams();
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -60,7 +60,7 @@ const ReviewSection = () => {
                       {review.userName}
                     </h3>
                     <span className="text-sm max-sm:text-xs text-gray-500">
-                      {new Date(review.createdAt).toLocaleDateString()}
+                     Reviewed on  {new Date(review.createdAt).toLocaleDateString()}
                     </span>
                   </div>
 

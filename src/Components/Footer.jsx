@@ -36,7 +36,7 @@ const Footer = () => {
             </h4>
             <ul className="space-y-2 text-black text-sm lg:text-base">
               <li>
-                <a href="#" className="hover:text-blue-600">
+                <a href="finddoctor" className="hover:text-blue-600">
                   Doctor Appointment
                 </a>
               </li>
@@ -46,7 +46,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-blue-600">
+                <a href="medicines" className="hover:text-blue-600">
                   Pharmacy
                 </a>
               </li>
