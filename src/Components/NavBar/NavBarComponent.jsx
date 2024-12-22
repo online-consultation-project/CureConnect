@@ -25,7 +25,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
   const location = useLocation();
   return (
     <div
-      className={`fixed top-0 left-0 h-full w-64 bg-blue-800 shadow-lg z-50 transform ${
+      className={`fixed top-0 left-0 h-full w-64 bg-blue-950 shadow-lg z-50 transform ${
         isOpen ? "translate-x-0" : "-translate-x-full"
       } transition-transform duration-300`}
     >
