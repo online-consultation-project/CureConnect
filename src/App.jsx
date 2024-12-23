@@ -59,7 +59,7 @@ const RouteComp = () => {
         <Route path="contactus" element={<ContactUs/>} />
         <Route path="Profilepopup/:_id"  element={<EditProfilePopup />}  />
         <Route path="/book-appointment/:doctorId" element={<BookAppointment/>} />
-        <Route path="/confirmation" element={<Confirmation/>}/>
+        <Route path="/confirmation/:_id" element={<Confirmation/>}/>
 
         {/* MEDICINE */}
 

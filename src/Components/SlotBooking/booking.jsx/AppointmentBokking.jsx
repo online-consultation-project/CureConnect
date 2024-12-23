@@ -12,6 +12,7 @@ import { toast } from "react-toastify"; // Import toastify
 const BookAppointment = () => {
   const { doctorId } = useParams();
   const navigate = useNavigate();
+  const userId = localStorage.getItem("userId")
 
   const [slots, setSlots] = useState([]);
   const [selectedSlot, setSelectedSlot] = useState("");
@@ -19,6 +20,7 @@ const BookAppointment = () => {
     name: "",
     email: "",
     phone: "",
+    consult:"",
     gender: "",
     age: "",
   });
@@ -33,7 +35,7 @@ const BookAppointment = () => {
       await axios
         .get(`http://localhost:7000/admin/getadmin/user/?_id=${doctorId}`)
         .then((res) => {
-          setDoctors([res.data.findAdmin]);
+          setDoctors([res.data]);
         })
         .catch((err) => {
           console.log(err);
@@ -95,6 +97,7 @@ const BookAppointment = () => {
       name: patientDetails.name,
       email: patientDetails.email,
       phone: patientDetails.phone,
+      consult:patientDetails.consult,
       gender: patientDetails.gender,
       age: patientDetails.age,
       doctorId,
@@ -147,6 +150,7 @@ const BookAppointment = () => {
                   patientName: patientDetails.name,
                   patientEmail: patientDetails.email,
                   patientPhone: patientDetails.phone,
+                  patientConsult:patientDetails.consult,
                   patientGender: patientDetails.gender,
                   patientAge: patientDetails.age,
                   userId: localStorage.getItem("userId"),
@@ -176,7 +180,7 @@ const BookAppointment = () => {
                 );
 
                 toast.success("Appointment booked successfully!"); // Show success toast
-                navigate("/confirmation");
+                navigate(`/confirmation/${userId}`);
               } else {
                 toast.error("Payment verification failed!"); // Show error toast
               }
@@ -339,6 +343,15 @@ const BookAppointment = () => {
                 value={patientDetails.phone}
                 onChange={handleInputChange}
                 className="w-full p-3 border border-gray-300 rounded-md"
+              />
+
+              <input
+              type="text"
+              placeholder="Consult For (Like: fever)"
+              name="consult"
+              value={patientDetails.consult}
+              onChange={handleInputChange}
+              className="w-full p-3 border border-gray-300 rounded-md"
               />
               <input
                 type="text"
