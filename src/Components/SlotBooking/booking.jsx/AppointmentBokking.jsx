@@ -92,7 +92,7 @@ const BookAppointment = () => {
     }
 
     const paymentData = {
-      amount: 1,
+      amount: doctors[0].consultationFee,
       currency: "INR",
       name: patientDetails.name,
       email: patientDetails.email,
@@ -165,7 +165,7 @@ const BookAppointment = () => {
 
                 // Save appointment to database
                 await axios.post(
-                  "http://localhost:7000/api/appointment/booking",
+                  "http://localhost:7000/api/zoommetting/create-meeting",
                   appointmentData,
                   {
                     headers: {
@@ -384,3 +384,7 @@ const BookAppointment = () => {
 };
 
 export default BookAppointment;
+
+
+
+// /api/appointment/booking
