@@ -32,6 +32,7 @@ import ResetPassword from "./Components/auth/ForgotPassword";
 import ReviewForm from "./Components/DoctorProfile/DoctorInfo/Reviewform";
 import OnlineConsultHome from "./Components/Home/OnlineConsultHome";
 import Loader from "./Components/ReusableComp/Loader";
+import OnlineBokkingAppointment from "./Components/SlotBooking/booking.jsx/OnlineAppointment";
 
 
 
@@ -63,7 +64,7 @@ const RouteComp = () => {
         <Route path="aboutus" element={<AboutUs/>} />
         <Route path="contactus" element={<ContactUs/>} />
         <Route path="Profilepopup/:_id"  element={<EditProfilePopup />}  />
-        <Route path="/book-appointment/:doctorId" element={<BookAppointment/>} />
+        <Route path="/book-appointment/:doctorId" element={<OnlineBokkingAppointment/>} />
         <Route path="/confirmation/:_id" element={<Confirmation/>}/>
 
         {/* MEDICINE */}
