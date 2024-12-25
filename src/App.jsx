@@ -64,7 +64,7 @@ const RouteComp = () => {
         <Route path="aboutus" element={<AboutUs/>} />
         <Route path="contactus" element={<ContactUs/>} />
         <Route path="Profilepopup/:_id"  element={<EditProfilePopup />}  />
-        <Route path="/book-appointment/:doctorId" element={<OnlineBokkingAppointment/>} />
+        <Route path="/book-appointment/:doctorId" element={<BookAppointment/>} />
         <Route path="/confirmation/:_id" element={<Confirmation/>}/>
 
         {/* MEDICINE */}
@@ -77,6 +77,7 @@ const RouteComp = () => {
 {/* onlineconsult */}
 
         <Route path="onlineconsult" element={<OnlineConsultHome/>}>
+        <Route path="/book-appointment/:doctorId" element={<OnlineBokkingAppointment/>} />
 
         </Route>
 

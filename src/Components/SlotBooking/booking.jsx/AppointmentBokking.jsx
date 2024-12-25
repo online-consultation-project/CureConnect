@@ -165,7 +165,7 @@ const BookAppointment = () => {
 
                 // Save appointment to database
                 await axios.post(
-                  "http://localhost:7000/api/zoommetting/create-meeting",
+                  "http://localhost:7000/api/appointment/booking",
                   appointmentData,
                   {
                     headers: {
@@ -387,4 +387,3 @@ export default BookAppointment;
 
 
 
-// /api/appointment/booking
