@@ -32,7 +32,7 @@ const Steps = () => {
         {/* Steps Section */}
         <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-6">
           {/* Step 1 */}
-          <div className="flex flex-col items-center justify-center w-full h-[200px] sm:h-[250px] bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+          <div className="flex flex-col items-center justify-center w-full h-[200px] hover:scale-105  sm:h-[250px] bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
             <TbWorldSearch className="text-5xl text-gray-700" />
             <h3 className="mt-4 text-lg font-semibold text-gray-800">
               Search Doctors
@@ -43,7 +43,7 @@ const Steps = () => {
           </div>
 
           {/* Step 2 */}
-          <div className="flex flex-col items-center justify-center w-full h-[200px] sm:h-[250px] bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+          <div className="flex flex-col items-center justify-center w-full h-[200px]  hover:scale-105 sm:h-[250px] bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
             <FaUserDoctor className="text-5xl text-gray-700" />
             <h3 className="mt-4 text-lg font-semibold text-gray-800">
               Check Doctor Profiles
@@ -54,7 +54,7 @@ const Steps = () => {
           </div>
 
           {/* Step 3 */}
-          <div className="flex flex-col items-center justify-center w-full h-[200px] sm:h-[250px] bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+          <div className="flex flex-col items-center justify-center w-full h-[200px]  hover:scale-105 sm:h-[250px] bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
             <FaBookMedical className="text-5xl text-gray-700" />
             <h3 className="mt-4 text-lg font-semibold text-gray-800">
               Book Appointment
@@ -65,7 +65,7 @@ const Steps = () => {
           </div>
 
           {/* Step 4 */}
-          <div className="flex flex-col items-center justify-center w-full h-[200px] sm:h-[250px] bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+          <div className="flex flex-col items-center justify-center w-full h-[200px]  hover:scale-105 sm:h-[250px] bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
             <IoMdCheckmarkCircleOutline className="text-5xl text-gray-700" />
             <h3 className="mt-4 text-lg font-semibold text-gray-800">
               Get Your Solution

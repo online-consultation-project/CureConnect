@@ -30,11 +30,15 @@ import BookAppointment from "./Components/SlotBooking/booking.jsx/AppointmentBok
 import Confirmation from "./Components/SlotBooking/booking.jsx/Confirmation";
 import ResetPassword from "./Components/auth/ForgotPassword";
 import ReviewForm from "./Components/DoctorProfile/DoctorInfo/Reviewform";
+import HeartBeat from "./Components/ReusableComp/BeatLoader";
+
+
+
 
 const RouteComp = () => {
   return (
     <Routes>
-     
+        <Route path="/loader" element={<HeartBeat/>} />
       <Route path="/register" element={<Signup />} />
       <Route path="/login" element={<Signin />} />
       <Route path="*" element={<ErrorPage/>}/>

@@ -9,3 +9,24 @@
       font-family: "Roboto", sans-serif ;
     }
   }
+
+  /* src/index.css */
+@layer components {
+  .heart-shape {
+    position: relative;
+    transform-origin: center center;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}
