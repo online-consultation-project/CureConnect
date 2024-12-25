@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Hero = () => {
   const images = [
     "https://hips.hearstapps.com/hmg-prod/images/types-of-doctors-1600114658.jpg?crop=1xw:0.8425829875518672xh;center,top&resize=1200:*",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvtc0APG7K-HVVIRr0EzRRWSoOSWsEP4Vwsg&s",
+    "https://img.freepik.com/free-photo/accompaniment-abortion-process_23-2149656077.jpg?uid=R162550578&ga=GA1.1.1965850165.1734144540&semt=ais_hybrid",
     "https://bethesdahealth.org/wp-content/uploads/2017/11/iStock-177732003-scaled.jpg",
     "https://bethesdahealth.org/wp-content/uploads/2017/11/iStock-177732003-scaled.jpg"
   ];

@@ -3,6 +3,7 @@ import { IoStar, IoStarHalf } from "react-icons/io5";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import ReviewForm from "./Reviewform";
+import Loader from "../../ReusableComp/Loader";
 
 const ReviewSection = () => {
   const { _id } = useParams();
@@ -29,7 +30,9 @@ const ReviewSection = () => {
   }, [_id]); 
 
   if (loading) {
-    return <p className=" w-full text-center flex justify-center items-center h-[400px] font-semibold " >Loading reviews...</p>;
+    return <div className=" w-full text-center flex justify-center items-center  " >
+      <Loader/>
+    </div>;
   }
 
   if (error) {

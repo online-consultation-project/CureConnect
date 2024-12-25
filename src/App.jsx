@@ -30,7 +30,8 @@ import BookAppointment from "./Components/SlotBooking/booking.jsx/AppointmentBok
 import Confirmation from "./Components/SlotBooking/booking.jsx/Confirmation";
 import ResetPassword from "./Components/auth/ForgotPassword";
 import ReviewForm from "./Components/DoctorProfile/DoctorInfo/Reviewform";
-import HeartBeat from "./Components/ReusableComp/BeatLoader";
+import OnlineConsultHome from "./Components/Home/OnlineConsultHome";
+import Loader from "./Components/ReusableComp/Loader";
 
 
 
@@ -38,7 +39,7 @@ import HeartBeat from "./Components/ReusableComp/BeatLoader";
 const RouteComp = () => {
   return (
     <Routes>
-        <Route path="/loader" element={<HeartBeat/>} />
+        <Route path="/loader" element={<Loader/>} />
       <Route path="/register" element={<Signup />} />
       <Route path="/login" element={<Signin />} />
       <Route path="*" element={<ErrorPage/>}/>
@@ -67,10 +68,18 @@ const RouteComp = () => {
 
         {/* MEDICINE */}
 
+
         <Route path="medicines" element={<MedicineHome/>}>
         </Route>
         <Route path="medicines/allcategory" element={<AllCategory/>}/>
        
+{/* onlineconsult */}
+
+        <Route path="onlineconsult" element={<OnlineConsultHome/>}>
+
+        </Route>
+
+
       </Route>
 
       {/* Medicine section */}

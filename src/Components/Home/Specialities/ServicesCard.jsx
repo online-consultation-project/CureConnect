@@ -15,6 +15,7 @@ const Services = () => {
       title: "Online Appointment",
       subtitle: "Book Now",
       image: "https://img.freepik.com/premium-photo/doctor-showing-health-control-app_274689-40946.jpg?w=740",
+      path:"/onlineconsult"
     },
     {
       id: 3,

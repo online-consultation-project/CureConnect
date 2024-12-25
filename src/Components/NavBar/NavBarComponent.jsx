@@ -204,6 +204,7 @@ const navItems = [
   { name: "Home", path: "/" },
   { name: "Find Doctors", path: "/finddoctor" },
   { name: "Medicines", path: "/medicines" },
+  {name:"Online Consultation" , path:"/onlineconsult"}
 ];
 
 const mobilenavItems = [
@@ -212,7 +213,7 @@ const mobilenavItems = [
   { icon: "RiContactsFill", text: "Medicines", path: "/medicines" },
   { icon: "IoMdTimer", text: "Contact Us", path: "/contactus" },
   { icon: "MdPreview", text: "About Us", path: "/aboutus" },
-  { icon: "IoLogOutOutline", text: "Logout" },
+  { icon: "IoLogOutOutline", text: "Logout", path:"/login" },
 ];
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {

@@ -215,7 +215,7 @@ const BookAppointment = () => {
       <HeadPart heading={"BookAppointment"} />
       <div className="min-h-screen bg-gray-100 lg:p-10 max-md:p-4">
         <div className="container mx-auto flex flex-col lg:flex-row gap-6">
-          {/* Doctor Profile Section */}
+       
           <div className="flex-1">
             <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-4">
               {doctors.map((doctor) => (
