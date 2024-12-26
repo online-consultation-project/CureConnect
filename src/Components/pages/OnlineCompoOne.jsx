@@ -3,7 +3,7 @@ import React from "react";
 
 const ApproachToHealthcare = () => {
   return (
-    <div className="py-10 bg-gray-50">
+    <div className="py-10">
       <div className="max-w-7xl mx-auto px-4 text-center">
         {/* Title Section */}
         <h2 className="text-4xl font-bold text-gray-900 mb-2">
@@ -64,7 +64,7 @@ const ApproachToHealthcare = () => {
         </div>
 
         {/* Privacy Section */}
-        <h3 className="text-3xl font-bold text-gray-900 mb-6">
+        <h3 className=" mt-20 text-3xl font-bold text-gray-900 mb-6">
           Data privacy and security is our top priority
         </h3>
         <p className="text-gray-600 max-w-2xl mx-auto mb-8">
@@ -84,10 +84,6 @@ const ApproachToHealthcare = () => {
             />
           
           </div>
-
-     
-
-         
         </div>
       </div>
     </div>

@@ -51,7 +51,7 @@ const ReviewSection = () => {
                 className="flex flex-col sm:flex-row items-start space-x-0 sm:space-x-4 border pb-4 mb-4 bg-white border-gray-300 p-5 rounded-lg"
               >
                 <img
-                  src={`http://localhost:7000/upload/${review.userPic}`}
+                  src={`http://localhost:7000/upload/${review.userPic.split("\\").pop()}`}
                   alt={review.userId.username}
                   className="w-16 h-16 sm:w-12 sm:h-12 rounded-full mx-auto sm:mx-0"
                 />

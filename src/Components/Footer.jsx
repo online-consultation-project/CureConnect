@@ -8,18 +8,17 @@ import {
   FaPhone,
   FaEnvelope,
 } from "react-icons/fa";
+import Logo  from "../assets/CC_logo3.png"
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-200 border-t border-gray-300 py-6 mt-20">
+    <footer className="bg-gray-50  py-6 mt-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Logo and Description */}
-          <div className="col-span-2">
-            <h1 className="text-3xl font-anton text-blue-600 font-bold">
-              Cure Connect
-            </h1>
-            <p className="text-black mt-4 text-sm lg:text-base">
+          <div className="col-span-2 flex flex-col justify-center  gap-2">
+            <img src={Logo} alt="Logo" className="h-14 w-40"/>
+            <p className="text-black mt-4 text-sm lg:text-base text-justify">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. It has been the industry's standard dummy text ever
               since the 1500s, when an unknown printer took a galley of type
@@ -126,7 +125,7 @@ const Footer = () => {
         {/* Footer Bottom */}
         <div className="mt-8 flex flex-col lg:flex-row justify-between items-center text-sm text-gray-500 text-center lg:text-left">
           <p>
-            Copyright © 2023 <b>Dreamguys</b>. All Rights Reserved.
+            Copyright © 2023 <b>CureConnect</b>. All Rights Reserved.
           </p>
         </div>
       </div>

@@ -17,55 +17,29 @@ const HowItWorks = () => {
           {/* Step 1 */}
           <div className="flex flex-col items-center text-center">
             <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-4">
-          <LuMousePointerClick className=" text-3xl"/>
+              <LuMousePointerClick className=" text-3xl" />
             </div>
-            <p className="text-gray-700">
-              Select a specialty or symptom
-            </p>
+            <p className="text-gray-700">Select a specialty or symptom</p>
           </div>
-          <div className="w-16 h-[1px] bg-gray-300 hidden md:block"></div>
+          <div className="w-36 h-[2px] bg-gray-400 hidden md:block"></div>
           {/* Step 2 */}
           <div className="flex flex-col items-center text-center">
             <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-4">
-          <RiSecurePaymentLine className=" text-3xl"/>
+              <RiSecurePaymentLine className=" text-3xl" />
             </div>
             <p className="text-gray-700">
               Audio/video call with a verified doctor
             </p>
           </div>
-          <div className="w-16 h-[1px] bg-gray-300 hidden md:block"></div>
+          <div className="w-36 h-[2px] bg-gray-400 hidden md:block"></div>
           {/* Step 3 */}
           <div className="flex flex-col items-center text-center">
             <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-4">
-           <FaLink className=" text-3xl"/>
+              <FaLink className=" text-3xl" />
             </div>
             <p className="text-gray-700">
               Get a digital prescription & a free follow-up
             </p>
-          </div>
-        </div>
-
-        {/* Stats Section */}
-        <div className="grid grid-cols-1 md:grid-cols-4 bg-gray-800 text-white py-6 text-center">
-          {/* Stat 1 */}
-          <div className="border-b md:border-b-0 md:border-r border-gray-600 px-6 py-4">
-            <h3 className="text-2xl font-semibold">2,00,000+</h3>
-            <p className="text-gray-300">Happy Users</p>
-          </div>
-          {/* Stat 2 */}
-          <div className="border-b md:border-b-0 md:border-r border-gray-600 px-6 py-4">
-            <h3 className="text-2xl font-semibold">20,000+</h3>
-            <p className="text-gray-300">Verified Doctors</p>
-          </div>
-          {/* Stat 3 */}
-          <div className="border-b md:border-b-0 md:border-r border-gray-600 px-6 py-4">
-            <h3 className="text-2xl font-semibold">25+</h3>
-            <p className="text-gray-300">Specialities</p>
-          </div>
-          {/* Stat 4 */}
-          <div className="px-6 py-4">
-            <h3 className="text-2xl font-semibold">4.5 / 5</h3>
-            <p className="text-gray-300">App Rating</p>
           </div>
         </div>
       </div>
