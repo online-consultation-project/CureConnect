@@ -13,11 +13,11 @@ const specialities = [
   { title: "Orthopedic", icon: <FaBone />, bgImage: "https://img.freepik.com/free-photo/chiropractor-provides-aid-patient_482257-90376.jpg?uid=R162567627&ga=GA1.1.884605993.1731922461&semt=ais_hybrid" },
 ];
 
-function Specialities() {
+function Specialities({topic}) {
   
   return (
     <div className=" w-full mt-16 mb-7">
-      <h1 className="text-3xl font-bold  mb-2 px-3 text-center">Clinic & Specialities</h1>
+      <h1 className="text-3xl font-bold  mb-2 px-3 text-center">{topic}</h1>
       <p className=" px-3 text-black mb-10 text-center">
         Access to expert physicians and surgeons, advanced technologies and top-quality surgery  facilities right here.
       </p>

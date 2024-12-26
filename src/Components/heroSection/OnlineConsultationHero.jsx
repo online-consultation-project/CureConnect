@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function OnlineConsultationHero() {
   return (
-    <div className= "bg-gradient-to-b from-blue-900 to-blue-500 min-h-[200px] flex flex-col items-center text-white">
+      <div className= "bg-gradient-to-b from-blue-800 to-blue-400 min-h-screen flex flex-col items-center text-white">
       <header className="text-center mt-16 px-4">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold">
           Consultation With Our Doctor Anywhere, Anytime
@@ -14,15 +15,18 @@ function OnlineConsultationHero() {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
         </p>
-        <div className="mt-6 flex justify-center gap-2">
+        <div className="mt-6 flex justify-center ">
+          <Link to={"doctorbycetegory"}>
           <button className="bg-teal-500 px-6 py-2 rounded-lg text-base md:text-lg font-semibold hover:scale-105 transition-transform">
             Get Started
           </button>
+          </Link>
+         
         </div>
       </header>
 
       {/* Right Section */}
-      <div className="w-full lg:w-[80%] min-h-[100px] relative top-10    md:top-20 lg:top-28 mb-16 md:mb-20 lg:mb-36 px-4">
+      <div className="w-full lg:w-[80%] min-h-[100px] relative top-10 md:top-20 lg:top-20 mb-16 md:mb-20 lg:mb-36 px-4">
         <div className="relative">
           <img
             className="w-full rounded-lg shadow-lg object-cover"
