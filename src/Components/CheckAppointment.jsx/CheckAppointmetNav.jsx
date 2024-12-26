@@ -8,7 +8,7 @@ const CheckAppointmentNav = () => {
 
   const navItems = [
     { name: "Offline Appointment", path: `/checkappointment/${userId}` },
-    { name: "Online Appointment", path: `/checkappointment/${userId}onlineappointments` },
+    { name: "Online Appointment", path: `/checkappointment/${userId}/onlineappointments` },
   ];
 
   return (
