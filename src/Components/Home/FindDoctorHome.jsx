@@ -14,7 +14,7 @@ const  FindDoctorHome = () => {
     
        <section className="w-full">
         <div className="mx-20 max-[425px]:mx-5 max-md:mx-12 max-lg:mx-14 max-xl:mx-16">
-          <Specialities />
+          <Specialities topic={"Consult Doctor By Catagory"} />
         </div>
       </section>
     

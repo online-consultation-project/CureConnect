@@ -203,13 +203,15 @@ import EditProfilePopup from "../UserProfilePopUp/ProfilePopUp";
 const navItems = [
   { name: "Home", path: "/" },
   { name: "Find Doctors", path: "/finddoctor" },
+  {name:"Online Consultation" , path:"/onlineconsult"},
   { name: "Medicines", path: "/medicines" },
-  {name:"Online Consultation" , path:"/onlineconsult"}
+ 
 ];
 
 const mobilenavItems = [
   { icon: "LuLayoutDashboard", text: "Home", path: "/" },
   { icon: "FaStethoscope", text: "Find Doctors", path: "/finddoctor" },
+  {  icon: "RiContactsFill",text:"Online Consultation" , path:"/onlineconsult"},
   { icon: "RiContactsFill", text: "Medicines", path: "/medicines" },
   { icon: "IoMdTimer", text: "Contact Us", path: "/contactus" },
   { icon: "MdPreview", text: "About Us", path: "/aboutus" },

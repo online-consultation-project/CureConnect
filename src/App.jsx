@@ -33,6 +33,9 @@ import ReviewForm from "./Components/DoctorProfile/DoctorInfo/Reviewform";
 import OnlineConsultHome from "./Components/Home/OnlineConsultHome";
 import Loader from "./Components/ReusableComp/Loader";
 import OnlineBokkingAppointment from "./Components/SlotBooking/booking.jsx/OnlineAppointment";
+import DoctorCard from "./Components/List of Doctors/DoctorCard";
+import OnlineDoctors from "./Components/OnlineComponent.jsx/OnlineDoctorList";
+import OnlineMain from "./Components/OnlineComponent.jsx/OnlineMain";
 import ApproachToHealthcare from "./Components/pages/OnlineCompoOne";
 import HowItWorks from "./Components/pages/OnlineComponTwo";
 
@@ -56,7 +59,7 @@ const RouteComp = () => {
 
         <Route path="finddoctor" element={<FindDoctorHome/>}/>
         <Route path="/doctorbycetegory" element={<Doctors/>}/>
-        <Route path="finddoctor/doctors" element={<Doctors />} />
+        {/* <Route path="finddoctor/doctors" element={<Doctors />} /> */}
         <Route path="/finddoctor/doctors/:_id" element={<DoctorProfile />}>
           <Route index element={<About />} />
           <Route path="reviews" element={<Reviews />} />
@@ -75,17 +78,25 @@ const RouteComp = () => {
 
 
         <Route path="medicines" element={<MedicineHome/>}>
+
         </Route>
         <Route path="medicines/allcategory" element={<AllCategory/>}/>
        
 {/* onlineconsult */}
 
-        <Route path="onlineconsult" element={<OnlineConsultHome/>}>
-        <Route path="/book-appointment/:doctorId" element={<OnlineBokkingAppointment/>} />
-
+        <Route path="onlineconsult" element={<OnlineMain/>}>
+        <Route index element={<OnlineConsultHome/>}/>
+        <Route path="doctorbycetegory" element={<OnlineDoctors/>}/>
+        <Route path="/onlineconsult/doctors/:_id" element={<DoctorProfile />}>
+          <Route index element={<About />} />
+          <Route path="reviews" element={<Reviews />} />
+          <Route path="addreviews" element={<ReviewForm />} />
+          <Route path="businesshours" element={<Business />} />
         </Route>
-
-
+        <Route path="book-appointment/:doctorId" element={<OnlineBokkingAppointment/>} />
+        
+        </Route>
+      
       </Route>
 
       {/* Medicine section */}
