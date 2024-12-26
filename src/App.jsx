@@ -38,6 +38,9 @@ import OnlineDoctors from "./Components/OnlineComponent.jsx/OnlineDoctorList";
 import OnlineMain from "./Components/OnlineComponent.jsx/OnlineMain";
 import ApproachToHealthcare from "./Components/pages/OnlineCompoOne";
 import HowItWorks from "./Components/pages/OnlineComponTwo";
+import CheckAppointmentMain from "./Components/CheckAppointment.jsx/CheckAppointmentMain";
+import CheckOfflineMain from "./Components/CheckAppointment.jsx/CheckOfflineAppointment/CheckOfflinemain";
+import CheckOnlineMain from "./Components/CheckAppointment.jsx/CheckOnlineAppointment/CheckOnlinemain";
 
 
 
@@ -95,6 +98,14 @@ const RouteComp = () => {
         </Route>
         <Route path="book-appointment/:doctorId" element={<OnlineBokkingAppointment/>} />
         
+        </Route>
+
+
+{/* checkappointment */}
+
+        <Route path="/checkappointment/:userId" element={<CheckAppointmentMain/>}>
+        <Route index element={<CheckOfflineMain/>} />
+        <Route path="onlineappointments" element={<CheckOnlineMain/>} />
         </Route>
       
       </Route>

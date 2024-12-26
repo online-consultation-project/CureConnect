@@ -387,12 +387,14 @@ import toggleLogo from "./../../assets/CureConnect.png";
 import { IoMenu, IoPersonCircle, IoLogOutOutline } from "react-icons/io5";
 import EditProfilePopup from "../UserProfilePopUp/ProfilePopUp";
 import axios from "axios";
+const userId = localStorage.getItem("userId")
+
 
 const navItems = [
   { name: "Home", path: "/" },
   { name: "Find Doctors", path: "/finddoctor" },
   { name: "Online Consultation", path: "/onlineconsult" },
-  { name: "Check Appointment", path: "/checkappointment" },
+  { name: "Check Appointment", path:`/checkappointment/${userId}` },
 
   // { name: "Medicines", path: "/medicines" },
 ];
@@ -407,7 +409,7 @@ const mobilenavItems = [
   },
   // { icon: "RiContactsFill", text: "Medicines", path: "/medicines" },
 
-  { icon: "IoMdTimer", text: "Check Appointment", path: "/checkappointment" },
+  { icon: "IoMdTimer", text: "Check Appointment", path: `/checkappointment/${userId}` },
   { icon: "IoMdTimer", text: "Contact Us", path: "/contactus" },
   { icon: "MdPreview", text: "About Us", path: "/aboutus" },
   { icon: "IoLogOutOutline", text: "Logout", path: "/login" },
