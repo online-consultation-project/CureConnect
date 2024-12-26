@@ -33,6 +33,8 @@ import ReviewForm from "./Components/DoctorProfile/DoctorInfo/Reviewform";
 import OnlineConsultHome from "./Components/Home/OnlineConsultHome";
 import Loader from "./Components/ReusableComp/Loader";
 import OnlineBokkingAppointment from "./Components/SlotBooking/booking.jsx/OnlineAppointment";
+import ApproachToHealthcare from "./Components/pages/OnlineCompoOne";
+import HowItWorks from "./Components/pages/OnlineComponTwo";
 
 
 
@@ -40,6 +42,8 @@ import OnlineBokkingAppointment from "./Components/SlotBooking/booking.jsx/Onlin
 const RouteComp = () => {
   return (
     <Routes>
+        <Route path="/ui" element={<ApproachToHealthcare/>} />
+        <Route path="/uitwo" element={<HowItWorks/>} />
         <Route path="/loader" element={<Loader/>} />
       <Route path="/register" element={<Signup />} />
       <Route path="/login" element={<Signin />} />
