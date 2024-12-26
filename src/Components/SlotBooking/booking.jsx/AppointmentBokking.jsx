@@ -161,6 +161,7 @@ const BookAppointment = () => {
                   doctorFirstName: doctors[0]?.firstName,
                   doctorLastName: doctors[0]?.lastName,
                   doctorCategory: doctors[0]?.category,
+                  payment: paymentOptions.amount,
                 };
 
                 // Save appointment to database
