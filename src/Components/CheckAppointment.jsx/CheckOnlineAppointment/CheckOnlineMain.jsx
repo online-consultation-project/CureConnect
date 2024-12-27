@@ -57,6 +57,8 @@ const CheckOnlineMain = () => {
                   patientConsult: appointment.patientConsult,
                   gender: appointment.patientGender,
                   age: appointment.patientAge,
+                  payment: appointment.payment,
+                  joinUrl: appointment.joinUrl,
                 }}
               />
             ))}

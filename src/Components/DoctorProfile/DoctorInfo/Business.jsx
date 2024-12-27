@@ -1,55 +1,81 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const Business = () => {
- 
-  const currentDate = new Date();
-  
-  
-  const formattedDate = currentDate.toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  });
+  const { _id } = useParams();  // Get the doctor's ID from the route params
+  const [slots, setSlots] = useState([]);
+  const [bookedSlots, setBookedSlots] = useState([]);
+  const [selectedDate, setSelectedDate] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    if (selectedDate) {
+      fetchSlots(selectedDate);
+    }
+  }, [selectedDate]);
+
+  const fetchSlots = async (date) => {
+    setLoading(true);
+    setError(""); // Clear any previous errors
+    try {
+      const response = await axios.get(
+        `http://localhost:7000/api/slots/user/${_id}?date=${date}`);
+
+      setSlots(response.data.slots || []);
+      setBookedSlots(response.data.bookedSlots || []);
+    } catch (error) {
+      setError("Error fetching slots. Please try again.");
+      console.error("Error fetching slots:", error);
+    }
+    setLoading(false);
+  };
+
+  const handleDateChange = (e) => {
+    setSelectedDate(e.target.value);
+  };
 
   return (
-    <div className="flex justify-center items-center text-black">
-      <div className="container mx-auto w-full sm:w-[85%] p-6">
-        <div className="rounded-lg overflow-hidden border border-gray-300 shadow-md">
-          <div className="flex justify-between items-center px-4 py-2">
-            <div className="flex flex-col sm:items-center">
-              <span className="font-bold text-lg py-5">Today</span>
-              <span className=" font-semibold mt-2 text-lg  sm:mt-0">{formattedDate}</span>
-            </div>
-            <span className="text-green-400 font-semibold">Open Now</span>
+    <div className="flex justify-center w-full py-3">
+      <div className="bg-white w-[85%] rounded-lg p-8 mb-6 border flex flex-col border-gray-300 shadow-lg">
+      <h1 className="text-2xl font-bold">Select a Date</h1>
+      <input
+        type="date"
+        value={selectedDate}
+        onChange={handleDateChange}
+        className="border p-2 rounded mb-6"
+      />
+      
+      {loading ? (
+        <p>Loading...</p>
+      ) : error ? (
+        <p className="text-red-500">{error}</p>
+      ) : (
+        <div >
+          <h3 className="text-lg font-bold mb-4">Available Slots</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {slots.length > 0 ? (
+              slots.map((slot, index) => (
+                <div
+                  key={index}
+                  className={`p-4 rounded-lg text-center transition-all duration-300 ${
+                    bookedSlots.includes(slot)
+                      ? "bg-gray-400 text-white cursor-not-allowed"
+                      : "bg-gray-300 hover:bg-green-400 cursor-pointer"
+                  }`}
+                >
+                  {slot} 
+                  {bookedSlots.includes(slot) ? "(Booked)" : "(Available)"}
+                </div>
+              ))
+            ) : (
+              <p className="col-span-full text-center">No slots available for this date.</p>
+            )}
           </div>
-          
-          {[ 
-            { day: "Monday", time: "07:00 AM - 09:00 PM" },
-            { day: "Tuesday", time: "07:00 AM - 09:00 PM" },
-            { day: "Wednesday", time: "07:00 AM - 09:00 PM" },
-            { day: "Thursday", time: "07:00 AM - 09:00 PM" },
-            { day: "Friday", time: "07:00 AM - 09:00 PM" },
-            { day: "Saturday", time: "07:00 AM - 09:00 PM" },
-            { day: "Sunday", time: "Closed", closed: true },
-          ].map(({ day, time, closed }, index) => (
-            <div
-              key={index}
-              className={`flex justify-between px-4 py-2 items-center ${
-                closed ? "bg-red-100" : ""
-              }`}
-            >
-              <span>{day}</span>
-              <span
-                className={`font-semibold ${
-                  closed ? "text-red-600" : "text-black"
-                }`}
-              >
-                {time}
-              </span>
-            </div>
-          ))}
         </div>
-      </div>
+      )}
+    </div>
     </div>
   );
 };

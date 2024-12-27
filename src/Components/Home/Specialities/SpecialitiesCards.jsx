@@ -6,7 +6,7 @@ function SpecialitiesCard({ icon, title, bgImage }) {
   const navigate = useNavigate()
 
   const handleCategoryClick = () =>{
-    navigate(`/doctorbycetegory?category=${title}`)
+    navigate(`/finddoctor/doctorbycetegory?category=${title}`)
   }
 
   return (

@@ -183,7 +183,7 @@ const BookAppointment = () => {
                 );
 
                 toast.success("Appointment booked successfully!");
-                navigate(`/confirmation/${userId}`);
+                navigate(`/finddoctor/confirmation/${userId}`);
               } else {
                 toast.error("Payment verification failed!");
               }

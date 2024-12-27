@@ -33,7 +33,7 @@ const OnlineDoctors = () => {
   };
 
   useEffect(() => {
-   
+      window.scrollTo(0,0)
       fetchDoctors();
     
   }, []);

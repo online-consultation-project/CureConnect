@@ -72,20 +72,13 @@ export const ContactUs = () => {
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-blue-900 mb-2">
             Contact Us
           </h2>
-          <div className="flex flex-row space-x-1 sm:space-x-2">
-            <a href="#" className="text-blue-900 text-sm sm:text-lg md:text-xl">
-              Home &gt;
-            </a>
-            <a href="#" className="text-blue-900 text-sm sm:text-lg md:text-xl">
-              Contact
-            </a>
-          </div>
+         
         </div>
 
         <img
           src="https://static.vecteezy.com/system/resources/previews/036/222/149/large_2x/ai-generated-team-of-doctor-in-a-hospital-background-hospital-medical-team-banner-with-group-of-smiling-healthy-doctors-and-nurses-ai-generated-free-photo.jpg"
           alt="Doctors Group"
-          className="rounded-md w-full h-[300px] sm:h-[400px] md:h-[500px] object-cover"
+          className="rounded-md w-full h-[300px] sm:h-[400px] md:h-[350px] object-cover"
         />
       </div>
 

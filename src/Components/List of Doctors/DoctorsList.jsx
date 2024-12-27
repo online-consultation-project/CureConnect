@@ -44,6 +44,7 @@ const Doctors = () => {
   };
 
   useEffect(() => {
+    window.scrollTo(0,0)
     if (location || category) {
       fetchDoctors();
     }

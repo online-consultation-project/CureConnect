@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import FindDoctorHeroSection from '../heroSection/FindDoctorHero'
 import Specialities from './Specialities/Specialities'
 import AppointMentInfo from './InstantAppointment'
 
 const  FindDoctorHome = () => {
+
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
   return (
     <div className="main min-h-screen">
       <section>

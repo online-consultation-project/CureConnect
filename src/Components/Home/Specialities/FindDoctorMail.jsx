@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 
 import { Outlet } from 'react-router-dom'
 
-const OnlineMain = () => {
+const FindDoctorMain = () => {
 
   useEffect(() => {
     window.scrollTo(0,0)
@@ -17,4 +17,4 @@ const OnlineMain = () => {
   )
 }
 
-export default OnlineMain
+export default FindDoctorMain

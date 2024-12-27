@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BiLike } from "react-icons/bi";
-import { FaRegMoneyBillAlt, FaTooth, FaMapMarkerAlt } from "react-icons/fa"; 
+import { FaRegMoneyBillAlt, FaTooth, FaMapMarkerAlt } from "react-icons/fa";
 import { IoIosStar, IoIosStarHalf } from "react-icons/io";
 import { IoCallOutline, IoLocationOutline } from "react-icons/io5";
 import { Link, Outlet, useParams } from "react-router-dom";
@@ -77,7 +77,7 @@ const DoctorProfile = () => {
               <p className="text-sm text-gray-600">(72 Reviews)</p>
             </div>
             <div className="flex items-center justify-center lg:justify-start gap-2 text-gray-950">
-            <IoLocationOutline  className="text-xl "/>
+              <IoLocationOutline className="text-xl " />
               <p>{`${doctorInfo.location}`}</p>
             </div>
             {/* Adding Email and Address */}
@@ -91,10 +91,10 @@ const DoctorProfile = () => {
           <div className="details2-con flex flex-col lg:py-7 items-center lg:items-start gap-4 mt-6 lg:mt-0">
             <div className="flex items-center gap-2">
               <MdOutlineEmail className="text-xl" />
-              <p className="text-base" >{`${doctorInfo.email}`}</p>
+              <p className="text-base">{`${doctorInfo.email}`}</p>
             </div>
             <div className="flex items-center gap-2">
-            <MdOutlineAddIcCall className="text-2xl" />
+              <MdOutlineAddIcCall className="text-2xl" />
               <p className="text-base">{`${doctorInfo.phoneNumber}`}</p>
             </div>
             <div className="flex items-center gap-2">
@@ -105,8 +105,22 @@ const DoctorProfile = () => {
               <FaRegMoneyBillAlt className="text-xl" />
               <p className="text-base">{`Rs: ${doctorInfo.consultationFee}`}</p>
             </div>
-            <div className="btn-con w-full py-6">
+            {/* <div className="btn-con w-full py-6">
               <Link to={`/book-appointment/${_id}`}>
+                <button className="w-full bg-[#0E82FD] hover:scale-105 transition ease-in-out duration-500 text-white py-2 px-6 rounded-md">
+                  Book Appointment
+                </button>
+              </Link>
+            </div> */}
+
+            <div className="btn-con w-full py-6">
+              <Link
+                to={`/${
+                  window.location.pathname.includes("onlineconsult")
+                    ? `onlineconsult/book-appointment/${_id}`
+                    :`finddoctor/book-appointment/${_id}`
+                }`}
+              >
                 <button className="w-full bg-[#0E82FD] hover:scale-105 transition ease-in-out duration-500 text-white py-2 px-6 rounded-md">
                   Book Appointment
                 </button>

@@ -45,7 +45,7 @@ const ApproachToHealthcare = () => {
               to uphold this trust.
             </p>
           </div>
-
+          
           {/* Transparency */}
           <div className="flex flex-col items-center">
             <img
@@ -63,6 +63,7 @@ const ApproachToHealthcare = () => {
           </div>
         </div>
 
+        <div className="w-full h-[2px] bg-gray-200 hidden md:block"></div>
         {/* Privacy Section */}
         <h3 className=" mt-20 text-3xl font-bold text-gray-900 mb-6">
           Data privacy and security is our top priority
