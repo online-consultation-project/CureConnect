@@ -466,7 +466,7 @@ const OnlineBookingAppointment = () => {
   return (
     <>
       <HeadPart heading={"OnlineBookingAppointment"} />
-      <div className="min-h-screen bg-gray-100 lg:p-10 max-md:p-4">
+      <div className="min-h-screen lg:p-10 max-md:p-4">
         <div className="container mx-auto flex flex-col lg:flex-row gap-6">
           {/* Doctor Details Section */}
           <div className="flex-1">
@@ -525,7 +525,7 @@ const OnlineBookingAppointment = () => {
           </div>
 
           {/* Booking Form Section */}
-          <div className="flex-1 bg-white p-6 rounded-lg shadow-lg">
+          <div className="flex-1 bg-white p-6 rounded-lg shadow-md shadow-slate-600">
             <h2 className="text-xl font-semibold text-center mb-6">
               Book Appointment
             </h2>
