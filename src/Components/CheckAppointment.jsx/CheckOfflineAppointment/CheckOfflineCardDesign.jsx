@@ -1,17 +1,21 @@
-
-
 import React from "react";
-import { MdAddCall, MdOutlineAttachEmail } from "react-icons/md";
+import { MdAddCall } from "react-icons/md";
 import { IoMdTime } from "react-icons/io";
 
-const CheckOnlineCardDesign = ({ appointments }) => {
+const CheckOfflineCardDesign = ({ appointments }) => {
   if (!appointments) {
-    return <div className="text-red-500">Error: Appointments data is missing</div>;
+    return <div className="text-red-500">Error: Appointment data is missing</div>;
   }
 
+  // Format the date properly
+  const formattedDate = new Date(appointments.date).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-7 items-center bg-white p-4 rounded-lg shadow-md mb-4 gap-y-4 gap-x-6">
+    <div className="bg-white p-4 rounded-lg shadow-md mb-4 flex flex-col sm:grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
       {/* Name Section */}
       <div className="text-start">
         <h4 className="font-semibold text-base">{appointments.name || "No Name"}</h4>
@@ -31,10 +35,6 @@ const CheckOnlineCardDesign = ({ appointments }) => {
 
       {/* Contact Info */}
       <div className="text-center">
-        {/* <div className="flex items-center justify-center gap-2">
-          <MdOutlineAttachEmail />
-          <p className="text-gray-600 break-all text-sm">{appointments.email || "No Email"}</p>
-        </div> */}
         <div className="flex items-center justify-center gap-2">
           <MdAddCall />
           <p className="text-gray-600 text-sm">{appointments.phone || "No Phone"}</p>
@@ -53,17 +53,16 @@ const CheckOnlineCardDesign = ({ appointments }) => {
         </div>
       </div>
 
-      {/* Appointments Type and Date */}
+      {/* Appointment Type and Date */}
       <div className="text-center">
         <p className="text-base font-sm">{appointments.type || "No Type"}</p>
         <div className="flex items-center justify-center gap-2">
           <IoMdTime className="text-sm" />
-          <p className="text-gray-600">{appointments.date || "No Date"}</p>
+          <p className="text-gray-600">{formattedDate || "No Date"}</p>
         </div>
       </div>
-
     </div>
   );
 };
 
-export default CheckOnlineCardDesign;
+export default CheckOfflineCardDesign;

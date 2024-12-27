@@ -62,7 +62,9 @@ const RouteComp = () => {
 
         <Route path="finddoctor" element={<FindDoctorHome/>}/>
         <Route path="/doctorbycetegory" element={<Doctors/>}/>
-        {/* <Route path="finddoctor/doctors" element={<Doctors />} /> */}
+
+        {/* dont remove this  search by location and category. */}
+        <Route path="finddoctor/doctors" element={<Doctors />} />  
         <Route path="/finddoctor/doctors/:_id" element={<DoctorProfile />}>
           <Route index element={<About />} />
           <Route path="reviews" element={<Reviews />} />
