@@ -32,7 +32,7 @@ const CheckOnlineMain = () => {
 
   return (
     <div className="flex">
-      <div className="bg-gray-200 w-full h-screen p-7">
+      <div className="bg-gray-200 w-full min-h-screen p-7">
         {/* Display loader while data is loading */}
         {loading ? (
           <Loader />
