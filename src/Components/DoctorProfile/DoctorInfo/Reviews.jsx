@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { IoStar, IoStarHalf } from "react-icons/io5";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import ReviewForm from "./Reviewform";
 import Loader from "../../ReusableComp/Loader";
 
 const ReviewSection = () => {

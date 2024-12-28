@@ -209,7 +209,12 @@ const BookAppointment = () => {
       }
     } catch (error) {
       console.error("Error initiating payment:", error);
-      toast.error("Error during payment process. Please try again.");
+      if (error.response && error.response.status === 401) {
+        toast.error("Session expired. Please log in again.");
+        window.location.href = "/login";  
+      } else {
+        toast.error("An error occurred. Please try again later.");
+      }
     }
   };
 
