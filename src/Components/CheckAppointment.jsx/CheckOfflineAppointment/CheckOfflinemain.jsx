@@ -4,6 +4,7 @@ import Loader from "../../ReusableComp/Loader";
 
 import { useParams } from "react-router-dom";
 import CheckOfflineCardDesign from "./CheckOfflineCardDesign";
+import { toast } from "react-toastify";
 
 const CheckOfflineMain = () => {
   const [appointment, setAppointment] = useState([]);
@@ -22,8 +23,15 @@ const CheckOfflineMain = () => {
       setAppointment(response.data);
     } catch (error) {
       console.log(error);
+      if (error.response && error.response.status === 401) {
+        toast.error("Session expired. Please log in again.");
+        window.location.href = "/login";  // Redirect to login page
+      } else {
+        toast.error("An error occurred. Please try again later.");
+      }
     } finally {
-      setLoading(false); // Set loading to false in both success and error cases
+      setLoading(false);
+      // Set loading to false in both success and error cases
     }
   };
 

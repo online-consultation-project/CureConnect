@@ -34,6 +34,7 @@ import CheckAppointmentMain from "./Components/CheckAppointment.jsx/CheckAppoint
 import CheckOfflineMain from "./Components/CheckAppointment.jsx/CheckOfflineAppointment/CheckOfflinemain";
 import CheckOnlineMain from "./Components/CheckAppointment.jsx/CheckOnlineAppointment/CheckOnlinemain";
 import FindDoctorMain from "./Components/Home/Specialities/FindDoctorMail";
+import TermsAndConditions from "./Components/Home/TermsAndConditions";
 
 
 
@@ -50,6 +51,7 @@ const RouteComp = () => {
       <Route path="/" element={<CureConnect />}>
         <Route index element={<Home />} />
         <Route path="aboutus" element={<AboutUs/>} />
+        <Route path="termsandconditions" element={<TermsAndConditions/>} />
         <Route path="contactus" element={<ContactUs/>} />
         <Route path="Profilepopup/:_id"  element={<EditProfilePopup />}  />
 

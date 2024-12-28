@@ -220,7 +220,7 @@ const BookAppointment = () => {
 
   return (
     <>
-      <HeadPart heading={"BookAppointment"} />
+      <HeadPart heading={"BookAppointment"} image={"https://img.freepik.com/premium-photo/online-applointment-booking-calendar-modish-regristration-internet-website_31965-260236.jpg?uid=R162550578&ga=GA1.1.1965850165.1734144540&semt=ais_hybrid"} />
       <div className="min-h-screen bg-gray-100 lg:p-10 max-md:p-4">
         <div className="container mx-auto flex flex-col lg:flex-row gap-6">
           <div className="flex-1">

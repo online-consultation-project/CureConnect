@@ -18,7 +18,7 @@ function OnlineConsultationHero() {
         <div className="mt-6 flex justify-center ">
           <Link to={"doctorbycetegory"}>
           <button className="bg-teal-500 px-6 py-2 rounded-lg text-base md:text-lg font-semibold hover:scale-105 transition-transform">
-            Get Started
+            Start Consult
           </button>
           </Link>
          

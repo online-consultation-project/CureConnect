@@ -123,7 +123,7 @@ export const ContactUs = () => {
         </div>
       </div>
 
-      <div className="flex flex-col lg:flex-row justify-between p-8 w-11/12">
+      <div className="flex flex-col lg:flex-row justify-between p-8 max-md:p-2 w-11/12">
         <div className="w-full lg:w-1/2 flex justify-center mb-6 px-3 lg:mb-0">
           <img
             src="https://doctoratdoor.co.in/assets/benefits-image.png"

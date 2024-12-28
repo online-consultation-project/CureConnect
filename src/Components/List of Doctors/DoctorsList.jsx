@@ -89,7 +89,7 @@ const Doctors = () => {
   return (
     <>
       <div>
-        <HeadPart heading={"Doctors"} />
+        <HeadPart heading={"Doctor Profile"} image={"https://www.shutterstock.com/shutterstock/photos/2188675669/display_1500/stock-photo-health-care-banner-medical-images-medical-background-images-2188675669.jpg"} />
       </div>
 
       <div className="main w-full h-screen py-5 flex">

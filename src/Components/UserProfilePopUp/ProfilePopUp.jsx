@@ -111,7 +111,7 @@ const EditProfilePage = () => {
       </Typography>
 
       <div className="flex justify-center">
-        <div className="w-full max-w-xl bg-white p-6 shadow-lg border-2 border-gray-300 rounded-md">
+        <div className="w-full max-w-xl bg-white p-6  max-md:p-2 shadow-lg border-2 border-gray-300 rounded-md">
           <div className="flex justify-center mb-6">
             <div className="relative">
               <img

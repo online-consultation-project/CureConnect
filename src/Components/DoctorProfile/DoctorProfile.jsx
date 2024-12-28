@@ -8,8 +8,8 @@ import { PiAddressBook, PiAddressBookFill } from "react-icons/pi";
 import { MdOutlineAddIcCall, MdOutlineEmail } from "react-icons/md";
 
 import HeadPart from "../heroSection/HeadPart";
-import DocNav from "./DoctorInfo/DocNav";
 import axios from "axios";
+import NavCardDoc from "./DoctorInfo/NavCardDoc";
 
 const DoctorProfile = () => {
   const { _id } = useParams();
@@ -43,12 +43,12 @@ const DoctorProfile = () => {
   return (
     <>
       <div>
-        <HeadPart heading={"Doctor Profile"} />
+        <HeadPart heading={"Doctor Profile"} image={"https://hips.hearstapps.com/hmg-prod/images/types-of-doctors-1600114658.jpg?crop=1xw:0.8425829875518672xh;center,top&resize=1200:*"} />
       </div>
 
       <div className="relative w-full h-auto flex flex-col items-center justify-start px-5 lg:px-10">
         {/* Doctor Details Section */}
-        <div className="w-full relative border border-gray-300 rounded-md flex flex-col lg:flex-row items-center lg:items-start p-6 gap-6 mt-10 shadow-md">
+        <div className="w-full relative border border-gray-300 rounded-md flex flex-col lg:flex-row items-center lg:items-start p-6 max-md: gap-6 mt-10 shadow-md">
           {/* Doctor Image */}
           <div className="img-con w-full sm:w-[250px] md:w-[300px] h-[250px] md:h-[300px] flex justify-center items-center shadow-md shadow-slate-600 rounded-md">
             <img
@@ -82,7 +82,7 @@ const DoctorProfile = () => {
             </div>
             {/* Adding Email and Address */}
             <div className="flex items-center justify-center lg:justify-start gap-2 text-gray-950">
-              <PiAddressBook className="text-2xl" />
+              <PiAddressBook className="text-2xl max-md:text-5xl" />
               <p>{`${doctorInfo.address}`}</p>
             </div>
           </div>
@@ -132,7 +132,7 @@ const DoctorProfile = () => {
 
       {/* Navigation */}
       <div className="w-full px-5 lg:px-10 mt-10">
-        <DocNav />
+        <NavCardDoc/>
       </div>
 
       {/* Outlet for Nested Routes */}
