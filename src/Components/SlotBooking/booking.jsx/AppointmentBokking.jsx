@@ -89,9 +89,10 @@ const BookAppointment = () => {
     setPatientDetails({ ...patientDetails, [name]: value });
   };
 
-  const handleBooking = async () => {
-    if (!selectedSlot) {
-      toast.warn("Please select a slot.");
+  const handleBooking = async (e) => {
+    e.preventDefault()
+    if (!appointmentData) {
+      toast.warn("Please select a all fields.");
       return;
     }
 
@@ -211,7 +212,7 @@ const BookAppointment = () => {
       console.error("Error initiating payment:", error);
       if (error.response && error.response.status === 401) {
         toast.error("Session expired. Please log in again.");
-        window.location.href = "/login";  
+        window.location.href = "/login";
       } else {
         toast.error("An error occurred. Please try again later.");
       }
@@ -220,7 +221,12 @@ const BookAppointment = () => {
 
   return (
     <>
-      <HeadPart heading={"BookAppointment"} image={"https://img.freepik.com/premium-photo/online-applointment-booking-calendar-modish-regristration-internet-website_31965-260236.jpg?uid=R162550578&ga=GA1.1.1965850165.1734144540&semt=ais_hybrid"} />
+      <HeadPart
+        heading={"BookAppointment"}
+        image={
+          "https://img.freepik.com/premium-photo/online-applointment-booking-calendar-modish-regristration-internet-website_31965-260236.jpg?uid=R162550578&ga=GA1.1.1965850165.1734144540&semt=ais_hybrid"
+        }
+      />
       <div className="min-h-screen bg-gray-100 lg:p-10 max-md:p-4">
         <div className="container mx-auto flex flex-col lg:flex-row gap-6">
           <div className="flex-1">
@@ -325,7 +331,10 @@ const BookAppointment = () => {
           </div>
 
           {/* Book Appointment Form */}
-          <div className="flex-1 bg-white p-6 rounded-lg shadow-lg">
+          <form
+            onSubmit={handleBooking}
+            className="flex-1 bg-white p-6 rounded-lg shadow-lg"
+          >
             <h2 className="text-xl font-semibold text-center mb-6">
               Book Appointment
             </h2>
@@ -334,6 +343,7 @@ const BookAppointment = () => {
                 type="text"
                 placeholder="Your Name"
                 name="name"
+                required
                 value={patientDetails.name}
                 onChange={handleInputChange}
                 className="w-full p-3 border border-gray-300 rounded-md"
@@ -342,6 +352,7 @@ const BookAppointment = () => {
                 type="email"
                 placeholder="Your Email"
                 name="email"
+                required
                 value={patientDetails.email}
                 onChange={handleInputChange}
                 className="w-full p-3 border border-gray-300 rounded-md"
@@ -350,6 +361,7 @@ const BookAppointment = () => {
                 type="tel"
                 placeholder="Your Phone"
                 name="phone"
+                required
                 value={patientDetails.phone}
                 onChange={handleInputChange}
                 className="w-full p-3 border border-gray-300 rounded-md"
@@ -358,6 +370,7 @@ const BookAppointment = () => {
                 type="text"
                 placeholder="Consult For (e.g., fever)"
                 name="consult"
+                required
                 value={patientDetails.consult}
                 onChange={handleInputChange}
                 className="w-full p-3 border border-gray-300 rounded-md"
@@ -366,6 +379,7 @@ const BookAppointment = () => {
                 type="text"
                 placeholder="Your Gender"
                 name="gender"
+                required
                 value={patientDetails.gender}
                 onChange={handleInputChange}
                 className="w-full p-3 border border-gray-300 rounded-md"
@@ -374,6 +388,7 @@ const BookAppointment = () => {
                 type="number"
                 placeholder="Your Age"
                 name="age"
+                required
                 value={patientDetails.age}
                 onChange={handleInputChange}
                 className="w-full p-3 border border-gray-300 rounded-md"
@@ -411,7 +426,7 @@ const BookAppointment = () => {
                 {/* Action Button */}
                 <div className="mt-4 lg:mt-0 lg:ml-4 w-full lg:w-auto">
                   <button
-                    onClick={handleBooking}
+                    type="submit"
                     className="w-full lg:w-auto px-6 py-3 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition"
                   >
                     Proceed to Payment
@@ -419,7 +434,7 @@ const BookAppointment = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </>

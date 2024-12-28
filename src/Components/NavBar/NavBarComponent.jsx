@@ -347,7 +347,7 @@ const Navbarmain = () => {
         </NavLink>
 
         {/* Navigation Links */}
-        <div className="hidden md:flex gap-10">
+        <div className="hidden lg:flex gap-10 ">
           {navItems.map((item, index) => (
             <NavLink
               to={item.path}

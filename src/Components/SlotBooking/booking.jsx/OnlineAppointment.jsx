@@ -246,6 +246,7 @@ const OnlineBookingAppointment = () => {
                 type="text"
                 placeholder="Your Name"
                 name="name"
+                required
                 value={patientDetails.name}
                 onChange={handleInputChange}
                 className="w-full p-3 border border-gray-300 rounded-md"
@@ -254,6 +255,7 @@ const OnlineBookingAppointment = () => {
                 type="email"
                 placeholder="Your Email"
                 name="email"
+                required
                 value={patientDetails.email}
                 onChange={handleInputChange}
                 className="w-full p-3 border border-gray-300 rounded-md"
@@ -262,6 +264,7 @@ const OnlineBookingAppointment = () => {
                 type="tel"
                 placeholder="Your Phone"
                 name="phone"
+                required
                 value={patientDetails.phone}
                 onChange={handleInputChange}
                 className="w-full p-3 border border-gray-300 rounded-md"
@@ -270,6 +273,7 @@ const OnlineBookingAppointment = () => {
                 type="text"
                 placeholder="Consult For (Like: fever)"
                 name="consult"
+                required
                 value={patientDetails.consult}
                 onChange={handleInputChange}
                 className="w-full p-3 border border-gray-300 rounded-md"
@@ -278,6 +282,7 @@ const OnlineBookingAppointment = () => {
                 type="text"
                 placeholder="Your Gender"
                 name="gender"
+                required
                 value={patientDetails.gender}
                 onChange={handleInputChange}
                 className="w-full p-3 border border-gray-300 rounded-md"
@@ -286,6 +291,7 @@ const OnlineBookingAppointment = () => {
                 type="number"
                 placeholder="Your Age"
                 name="age"
+                required
                 value={patientDetails.age}
                 onChange={handleInputChange}
                 className="w-full p-3 border border-gray-300 rounded-md"
