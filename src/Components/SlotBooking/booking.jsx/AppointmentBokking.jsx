@@ -91,7 +91,7 @@ const BookAppointment = () => {
 
   const handleBooking = async (e) => {
     e.preventDefault()
-    if (!appointmentData) {
+    if (!selectedSlot) {
       toast.warn("Please select a all fields.");
       return;
     }
