@@ -58,8 +58,14 @@ const OnlineBookingAppointment = () => {
   };
 
   const handleBooking = async () => {
+
+    if (!patientDetails.name && !patientDetails.email && !patientDetails.phone && !patientDetails.consult && !patientDetails.gender && !patientDetails.age) {
+          toast.warn("Please select a all fields.");
+          return;
+        }
+
     const paymentData = {
-      amount: totalAmount, // Updated amount with GST
+      amount: totalAmount, 
       currency: "INR",
       name: patientDetails.name,
       email: patientDetails.email,
@@ -237,7 +243,7 @@ const OnlineBookingAppointment = () => {
           </div>
 
           {/* Booking Form Section */}
-          <div className="flex-1 bg-white p-6 rounded-lg shadow-md shadow-slate-600">
+          <form className="flex-1 bg-white p-6 rounded-lg shadow-md shadow-slate-600">
             <h2 className="text-xl font-semibold text-center mb-6">
               Book Appointment
             </h2>
@@ -337,7 +343,7 @@ const OnlineBookingAppointment = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </>

@@ -28,6 +28,7 @@ const BookAppointment = () => {
   const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
   const [doctors, setDoctors] = useState([]);
   const [consultationFee, setConsultationFee] = useState(0);
+  const [loading, setLoading] = useState(false);
   const [gstAmount, setGstAmount] = useState(0);
   const [totalAmount, setTotalAmount] = useState(0);
 
@@ -90,8 +91,16 @@ const BookAppointment = () => {
   };
 
   const handleBooking = async (e) => {
-    e.preventDefault()
-    if (!selectedSlot) {
+    e.preventDefault();
+    if (
+      !selectedSlot ||
+      !patientDetails.name ||
+      !patientDetails.email ||
+      !patientDetails.phone ||
+      !patientDetails.consult ||
+      !patientDetails.gender ||
+      !patientDetails.age
+    ) {
       toast.warn("Please select a all fields.");
       return;
     }
@@ -109,7 +118,7 @@ const BookAppointment = () => {
       date,
       selectedSlot,
     };
-
+    setLoading(true);
     try {
       const orderResponse = await axios.post(
         "http://localhost:7000/api/payment/create-order",
@@ -216,6 +225,8 @@ const BookAppointment = () => {
       } else {
         toast.error("An error occurred. Please try again later.");
       }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -305,7 +316,7 @@ const BookAppointment = () => {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-3 gap-4">
                 {slots === null ? (
-                  <p>Loading slots...</p> // Show this while fetching slots
+                  <p>Loading slots...</p>
                 ) : slots && slots.length > 0 ? (
                   slots.map((slot, index) => (
                     <button
@@ -427,10 +438,16 @@ const BookAppointment = () => {
                 <div className="mt-4 lg:mt-0 lg:ml-4 w-full lg:w-auto">
                   <button
                     type="submit"
-                    className="w-full lg:w-auto px-6 py-3 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition"
+                    className={`w-full py-3 px-2 ${
+                      loading
+                        ? "bg-gray-400 cursor-not-allowed"
+                        : "bg-blue-500 hover:bg-blue-600"
+                    } text-white font-semibold rounded-md`}
+                    disabled={loading}
                   >
-                    Proceed to Payment
+                    {loading ? "Processing..." : "Confirm Booking"}
                   </button>
+                  
                 </div>
               </div>
             </div>
