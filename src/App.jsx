@@ -17,7 +17,7 @@ import CureConnect from "./Components/Home/CureConnect";
 import Home from "./Components/Home/Home";
 import MedicineHome from "./Components/Home/MediHome";
 // import Steps from "./Components/Home/steps";
-import AboutUs from "./Components/pages/Aboutus";
+// import AboutUs from "./Components/pages/Aboutus";
 import FindDoctorHome from "./Components/Home/FindDoctorHome";
 import AllCategory from "./Components/Home/AllCategory";
 import ErrorPage from "./404-Error";
@@ -36,6 +36,7 @@ import CheckOnlineMain from "./Components/CheckAppointment.jsx/CheckOnlineAppoin
 import FindDoctorMain from "./Components/Home/Specialities/FindDoctorMail";
 import TermsAndConditions from "./Components/Home/TermsAndConditions";
 import Steps from "./Components/Home/Step";
+import AboutUs from "./Components/pages/AboutPage";
 
 const RouteComp = () => {
   return (
