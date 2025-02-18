@@ -1,7 +1,7 @@
 import React from "react";
 import MainHero from "../heroSection/MainHero";
 import Specialities from "./Specialities/Specialities";
-import Steps from "./steps";
+import Steps from "./Step";
 import Services from "./Specialities/ServicesCard";
 
 

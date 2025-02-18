@@ -16,7 +16,7 @@ import EditProfilePopup from "./Components/UserProfilePopUp/ProfilePopUp";
 import CureConnect from "./Components/Home/CureConnect";
 import Home from "./Components/Home/Home";
 import MedicineHome from "./Components/Home/MediHome";
-import Steps from "./Components/Home/steps";
+// import Steps from "./Components/Home/steps";
 import AboutUs from "./Components/pages/Aboutus";
 import FindDoctorHome from "./Components/Home/FindDoctorHome";
 import AllCategory from "./Components/Home/AllCategory";
@@ -35,77 +35,75 @@ import CheckOfflineMain from "./Components/CheckAppointment.jsx/CheckOfflineAppo
 import CheckOnlineMain from "./Components/CheckAppointment.jsx/CheckOnlineAppointment/CheckOnlinemain";
 import FindDoctorMain from "./Components/Home/Specialities/FindDoctorMail";
 import TermsAndConditions from "./Components/Home/TermsAndConditions";
-
-
-
+import Steps from "./Components/Home/Step";
 
 const RouteComp = () => {
   return (
     <Routes>
       <Route path="/register" element={<Signup />} />
       <Route path="/login" element={<Signin />} />
-      <Route path="*" element={<ErrorPage/>}/>
+      <Route path="*" element={<ErrorPage />} />
       <Route path="/forgotpassword" element={<ResetPassword />} />
       {/* Doctor section */}
 
       <Route path="/" element={<CureConnect />}>
         <Route index element={<Home />} />
-        <Route path="aboutus" element={<AboutUs/>} />
-        <Route path="termsandconditions" element={<TermsAndConditions/>} />
-        <Route path="contactus" element={<ContactUs/>} />
-        <Route path="Profilepopup/:_id"  element={<EditProfilePopup />}  />
+        <Route path="aboutus" element={<AboutUs />} />
+        <Route path="termsandconditions" element={<TermsAndConditions />} />
+        <Route path="contactus" element={<ContactUs />} />
+        <Route path="Profilepopup/:_id" element={<EditProfilePopup />} />
 
-        <Route path="finddoctor" element={<FindDoctorMain/>}>
-        <Route index element={<FindDoctorHome/>}/>
-        <Route path="doctorbycetegory" element={<Doctors/>}/>
-        <Route path="doctors" element={<Doctors />} />
-        <Route path="doctors/:_id" element={<DoctorProfile />}>
-          <Route index element={<About />} />
-          <Route path="reviews" element={<Reviews />} />
-          <Route path="addreviews" element={<ReviewForm />} />
-          <Route path="businesshours" element={<Business />} />
+        <Route path="finddoctor" element={<FindDoctorMain />}>
+          <Route index element={<FindDoctorHome />} />
+          <Route path="doctorbycetegory" element={<Doctors />} />
+          <Route path="doctors" element={<Doctors />} />
+          <Route path="doctors/:_id" element={<DoctorProfile />}>
+            <Route index element={<About />} />
+            <Route path="reviews" element={<Reviews />} />
+            <Route path="addreviews" element={<ReviewForm />} />
+            <Route path="businesshours" element={<Business />} />
+          </Route>
+          <Route
+            path="book-appointment/:doctorId"
+            element={<BookAppointment />}
+          />
+          <Route path="confirmation/:_id" element={<Confirmation />} />
         </Route>
-        <Route path="book-appointment/:doctorId" element={<BookAppointment/>} />
-        <Route path="confirmation/:_id" element={<Confirmation/>}/>  
-        </Route>
-    
-        
+
         {/* <Route path="doctorProfile/avaliableslot" element={<Mainslot />} />
         <Route path="doctorProfile/avaliableslot/checkout"  element={<BookingForm />} /> */}
-        
-        
 
         {/* MEDICINE */}
 
+        <Route path="medicines" element={<MedicineHome />}></Route>
+        <Route path="medicines/allcategory" element={<AllCategory />} />
 
-        <Route path="medicines" element={<MedicineHome/>}>
+        {/* onlineconsult */}
 
+        <Route path="onlineconsult" element={<OnlineMain />}>
+          <Route index element={<OnlineConsultHome />} />
+          <Route path="doctorbycetegory" element={<OnlineDoctors />} />
+          <Route path="/onlineconsult/doctors/:_id" element={<DoctorProfile />}>
+            <Route index element={<About />} />
+            <Route path="reviews" element={<Reviews />} />
+            <Route path="addreviews" element={<ReviewForm />} />
+            <Route path="businesshours" element={<Business />} />
+          </Route>
+          <Route
+            path="book-appointment/:doctorId"
+            element={<OnlineBokkingAppointment />}
+          />
         </Route>
-        <Route path="medicines/allcategory" element={<AllCategory/>}/>
-       
-{/* onlineconsult */}
 
-        <Route path="onlineconsult" element={<OnlineMain/>}>
-        <Route index element={<OnlineConsultHome/>}/>
-        <Route path="doctorbycetegory" element={<OnlineDoctors/>}/>
-        <Route path="/onlineconsult/doctors/:_id" element={<DoctorProfile />}>
-          <Route index element={<About />} />
-          <Route path="reviews" element={<Reviews />} />
-          <Route path="addreviews" element={<ReviewForm />} />
-          <Route path="businesshours" element={<Business />} />
+        {/* checkappointment */}
+
+        <Route
+          path="/checkappointment/:userId"
+          element={<CheckAppointmentMain />}
+        >
+          <Route index element={<CheckOfflineMain />} />
+          <Route path="onlineappointments" element={<CheckOnlineMain />} />
         </Route>
-        <Route path="book-appointment/:doctorId" element={<OnlineBokkingAppointment/>} />
-        
-        </Route>
-
-
-{/* checkappointment */}
-
-        <Route path="/checkappointment/:userId" element={<CheckAppointmentMain/>}>
-        <Route index element={<CheckOfflineMain/>} />
-        <Route path="onlineappointments" element={<CheckOnlineMain/>} />
-        </Route>
-      
       </Route>
 
       {/* Medicine section */}
@@ -120,4 +118,3 @@ const RouteComp = () => {
 };
 
 export default RouteComp;
-
