@@ -37,6 +37,10 @@ import FindDoctorMain from "./Components/Home/Specialities/FindDoctorMail";
 import TermsAndConditions from "./Components/Home/TermsAndConditions";
 import Steps from "./Components/Home/Step";
 import AboutUs from "./Components/pages/AboutPage";
+import CareerHome from "./Components/Carrer/CareerHome";
+import JobDetails from "./Components/Carrer/JobDetials";
+import JobForm from "./Components/Carrer/JobForm";
+import CareerMain from "./Components/Carrer/CareerMain";
 
 const RouteComp = () => {
   return (
@@ -74,11 +78,6 @@ const RouteComp = () => {
         {/* <Route path="doctorProfile/avaliableslot" element={<Mainslot />} />
         <Route path="doctorProfile/avaliableslot/checkout"  element={<BookingForm />} /> */}
 
-        {/* MEDICINE */}
-
-        <Route path="medicines" element={<MedicineHome />}></Route>
-        <Route path="medicines/allcategory" element={<AllCategory />} />
-
         {/* onlineconsult */}
 
         <Route path="onlineconsult" element={<OnlineMain />}>
@@ -105,7 +104,21 @@ const RouteComp = () => {
           <Route index element={<CheckOfflineMain />} />
           <Route path="onlineappointments" element={<CheckOnlineMain />} />
         </Route>
+
+        {/* career Section */}
+
+        <Route path="career" element={<CareerMain/>}>
+          <Route index element={<CareerHome />} />
+          <Route path="job/:id" element={<JobDetails />} />
+          <Route path="job/:id/form" element={<JobForm/>} />
+        </Route>
       </Route>
+      {/* END OF WORKINg */}
+      {/* WORKING BUT NOT IN WEBSITE */}
+      {/* MEDICINE */}
+
+      <Route path="medicines" element={<MedicineHome />}></Route>
+      <Route path="medicines/allcategory" element={<AllCategory />} />
 
       {/* Medicine section */}
       <Route path="/mediproduct" element={<ProductCards />} />

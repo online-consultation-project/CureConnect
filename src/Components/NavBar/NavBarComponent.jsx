@@ -240,6 +240,7 @@ const navItems = [
   { name: "Find Doctors", path: "/finddoctor" },
   { name: "Online Consultation", path: "/onlineconsult" },
   { name: "Check Appointment", path: `/checkappointment/${userId}` },
+  { name: "Career", path:"/career" },
 ];
 
 const mobilenavItems = [
@@ -249,6 +250,7 @@ const mobilenavItems = [
   { text: "Check Appointment", path: `/checkappointment/${userId}` },
   { text: "Contact Us", path: "/contactus" },
   { text: "About Us", path: "/aboutus" },
+  { text: "Career", path: "/career" },
   { text: "Logout", path: "/login" },
 ];
 
