@@ -42,7 +42,7 @@ const ResetPassword = () => {
 
     try {
       // API call to reset password
-      await axios.post("https://backend-doctor-production.up.railway.app/user/reset-password", {
+      await axios.post("http://localhost:7000/user/reset-password", {
         email,
         password,
         confirmPassword,

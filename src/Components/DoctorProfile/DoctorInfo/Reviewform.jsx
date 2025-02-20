@@ -50,7 +50,7 @@
 
 //     try {
 //       const response = await axios.post(
-//         "https://backend-doctor-production.up.railway.app/user/reviews",  
+//         "http://localhost:7000/user/reviews",  
 //         reviewData,
 //         {
 //           headers: {
@@ -237,7 +237,7 @@ const ReviewForm = ({ doctorName }) => {
       };
 
       const response = await axios.post(
-        "https://backend-doctor-production.up.railway.app/user/reviews",  // Replace with your backend URL
+        "http://localhost:7000/user/reviews",  // Replace with your backend URL
         reviewData,
         {
           headers: {

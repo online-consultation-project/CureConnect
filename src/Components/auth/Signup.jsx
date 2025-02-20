@@ -8,7 +8,7 @@ import Doctor from "../../assets/young-doctors-with-papers-hallway.jpg";
 import Logo from "../../assets/CC_logo3.png";
 import { Grid, TextField, Button, Typography, FormControlLabel, Checkbox } from "@mui/material"; // MUI components
 
-const urlApi = "https://backend-doctor-production.up.railway.app/user";
+const urlApi = "http://localhost:7000/user";
 
 const Register = () => {
   const [formData, setFormData] = useState({

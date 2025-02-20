@@ -21,7 +21,7 @@ const Business = () => {
     setError(""); // Clear any previous errors
     try {
       const response = await axios.get(
-        `https://backend-doctor-production.up.railway.app/api/slots/user/${_id}?date=${date}`);
+        `http://localhost:7000/api/slots/user/${_id}?date=${date}`);
 
       setSlots(response.data.slots || []);
       setBookedSlots(response.data.bookedSlots || []);

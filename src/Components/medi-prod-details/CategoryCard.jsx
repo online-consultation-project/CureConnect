@@ -38,7 +38,7 @@ const ProductCategory = ({ bgColor, iconurl, category, categoryName }) => {
   const fetchCategoryProduct = async () => {
     try {
       const response = await axios.get(
-        `https://backend-doctor-production.up.railway.app/pharmacy/categoryproductforhome/?category=${category}`, config
+        `http://localhost:7000/pharmacy/categoryproductforhome/?category=${category}`, config
       );
       setCategoryProduct(response.data.getCategoryProduct);
     } catch (error) {
@@ -82,7 +82,7 @@ const ProductCategory = ({ bgColor, iconurl, category, categoryName }) => {
 
               <div className="relative overflow-hidden rounded-md mt-6 py-3">
                 <img
-                  src={`https://backend-doctor-production.up.railway.app/upload/${categories.productFileName}`}
+                  src={`http://localhost:7000/upload/${categories.productFileName}`}
                   alt={categories.productName}
                   className="w-full h-20  md:h-36 object-contain transition-transform hover:scale-105"
                 />

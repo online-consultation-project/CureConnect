@@ -12,7 +12,7 @@ const Confirmation = () => {
 
     try {
       const res = await axios.get(
-        `https://backend-doctor-production.up.railway.app/api/appointment/booking?_id=${_id}`,
+        `http://localhost:7000/api/appointment/booking?_id=${_id}`,
         {
           headers: {
             Authorization: `Bearer ${authToken}`,

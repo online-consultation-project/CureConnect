@@ -20,7 +20,7 @@ const ProductDesign = ({product}) => {
 
             <div className="relative overflow-hidden rounded-md mt-6 py-3">
               <img
-              src={`https://backend-doctor-production.up.railway.app/upload/${product.productFileName}`}
+              src={`http://localhost:7000/upload/${product.productFileName}`}
                 alt={product.name}
                 className="w-full h-20  md:h-36 object-contain transition-transform hover:scale-105"
               />

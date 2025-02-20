@@ -35,7 +35,7 @@ const BookAppointment = () => {
   const fetchDoctorDetails = async () => {
     try {
       await axios
-        .get(`https://backend-doctor-production.up.railway.app/admin/getadmin/user/?_id=${doctorId}`)
+        .get(`http://localhost:7000/admin/getadmin/user/?_id=${doctorId}`)
         .then((res) => {
           const doctor = res.data;
           setDoctors([doctor]);
@@ -56,7 +56,7 @@ const BookAppointment = () => {
   useEffect(() => {
     if (doctorId || date) {
       axios
-        .get(`https://backend-doctor-production.up.railway.app/api/slots/user/${doctorId}?date=${date}`, {
+        .get(`http://localhost:7000/api/slots/user/${doctorId}?date=${date}`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -121,7 +121,7 @@ const BookAppointment = () => {
     setLoading(true);
     try {
       const orderResponse = await axios.post(
-        "https://backend-doctor-production.up.railway.app/api/payment/create-order",
+        "http://localhost:7000/api/payment/create-order",
         paymentData,
         {
           headers: {
@@ -150,7 +150,7 @@ const BookAppointment = () => {
 
             try {
               const verifyResponse = await axios.post(
-                "https://backend-doctor-production.up.railway.app/api/payment/verify-payment",
+                "http://localhost:7000/api/payment/verify-payment",
                 paymentDetails,
                 {
                   headers: {
@@ -179,7 +179,7 @@ const BookAppointment = () => {
                 };
 
                 await axios.post(
-                  "https://backend-doctor-production.up.railway.app/api/appointment/booking",
+                  "http://localhost:7000/api/appointment/booking",
                   appointmentData,
                   {
                     headers: {
@@ -249,7 +249,7 @@ const BookAppointment = () => {
                 >
                   <div className="img-con w-[180px] lg:w-[200px] h-[180px] lg:h-[200px] flex justify-center items-center p-2 shadow-md shadow-slate-600">
                     <img
-                      src={`https://backend-doctor-production.up.railway.app/upload/${doctor.profileFileName}`}
+                      src={`http://localhost:7000/upload/${doctor.profileFileName}`}
                       alt="Doctor"
                       className="object-fill w-full h-full rounded-md"
                     />
