@@ -35,7 +35,7 @@ const EditProfilePage = () => {
     const userId = localStorage.getItem("userId");
     try {
       await axios
-        .get(`http://localhost:7000/user/getUserProfile?_id=${userId}`, {
+        .get(`https://backend-doctor-production.up.railway.app/user/getUserProfile?_id=${userId}`, {
           headers: {
             Authorization: `Bearer ${authToken}`,
           },
@@ -84,7 +84,7 @@ const EditProfilePage = () => {
     const authToken1 = localStorage.getItem("token");
     try {
       await axios
-        .put(`http://localhost:7000/user/getUserProfile/?objId=${_id}`, data, {
+        .put(`https://backend-doctor-production.up.railway.app/user/getUserProfile/?objId=${_id}`, data, {
           headers: {
             Authorization: `Bearer ${authToken1}`,
             "Content-Type": "multipart/form-data",
@@ -117,7 +117,7 @@ const EditProfilePage = () => {
               <img
                 src={
                   formData.profileFileName
-                    ? `http://localhost:7000/upload/${formData.profileFileName}`
+                    ? `https://backend-doctor-production.up.railway.app/upload/${formData.profileFileName}`
                     : `${formData.picture}`
                 }
                 alt="Profile"

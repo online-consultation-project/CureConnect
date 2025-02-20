@@ -26,7 +26,7 @@ const DoctorCard = ({
       {/* Image Section */}
       <div className="img-con w-[150px] sm:w-[180px] md:w-[200px] h-[150px] sm:h-[180px] md:h-[200px] flex justify-center items-center p-2 shadow-md shadow-slate-600">
         <img
-          src={`http://localhost:7000/upload/${image}`}
+          src={`https://backend-doctor-production.up.railway.app/upload/${image}`}
           alt="Doctor"
           className="object-cover w-full h-full rounded-md"
         />

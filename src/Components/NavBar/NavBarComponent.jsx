@@ -82,7 +82,7 @@
 //     try {
 //       const authToken = localStorage.getItem("token");
 //       const response = await axios.get(
-//         `http://localhost:7000/user/getUserProfile?_id=${userId}`,
+//         `https://backend-doctor-production.up.railway.app/user/getUserProfile?_id=${userId}`,
 //         {
 //           headers: {
 //             Authorization: `Bearer ${authToken}`,
@@ -155,7 +155,7 @@
 //               <NavLink to={`/Profilepopup/${userId}`}>
 //                 {profileImage ? (
 //                   <img
-//                     src={`http://localhost:7000/upload/${profileImage.profileFileName}`}
+//                     src={`https://backend-doctor-production.up.railway.app/upload/${profileImage.profileFileName}`}
 //                     alt="Profile"
 //                     className="w-10 h-10 rounded-full cursor-pointer border-2 border-blue-500"
 //                   />
@@ -187,7 +187,7 @@
 //             <NavLink to={`/Profilepopup/${userId}`}>
 //               {profileImage ? (
 //                 <img
-//                   src={`http://localhost:7000/upload/${profileImage.profileFileName}`}
+//                   src={`https://backend-doctor-production.up.railway.app/upload/${profileImage.profileFileName}`}
 //                   alt="Profile"
 //                   className="w-8 h-8 rounded-full cursor-pointer border-2 border-blue-500"
 //                 />
@@ -300,7 +300,7 @@ const Navbarmain = () => {
     try {
       const authToken = localStorage.getItem("token");
       const response = await axios.get(
-        `http://localhost:7000/user/getUserProfile?_id=${userId}`,
+        `https://backend-doctor-production.up.railway.app/user/getUserProfile?_id=${userId}`,
         {
           headers: {
             Authorization: `Bearer ${authToken}`,
@@ -374,7 +374,7 @@ const Navbarmain = () => {
               <NavLink to={`/Profilepopup/${userId}`}>
                 {profileImage ? (
                   <img
-                    src={`http://localhost:7000/upload/${profileImage.profileFileName}`}
+                    src={`https://backend-doctor-production.up.railway.app/upload/${profileImage.profileFileName}`}
                     alt="Profile"
                     className="w-10 h-10 rounded-full cursor-pointer border-2 border-blue-500"
                   />
@@ -407,7 +407,7 @@ const Navbarmain = () => {
             <NavLink to={`/Profilepopup/${userId}`}>
               {profileImage ? (
                 <img
-                  src={`http://localhost:7000/upload/${profileImage.profileFileName}`}
+                  src={`https://backend-doctor-production.up.railway.app/upload/${profileImage.profileFileName}`}
                   alt="Profile"
                   className="w-8 h-8 rounded-full cursor-pointer border-2 border-blue-500"
                 />

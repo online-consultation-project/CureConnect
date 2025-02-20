@@ -20,7 +20,7 @@ const DoctorProfile = () => {
 
     try {
       await axios
-        .get(`http://localhost:7000/admin/getadmin/user/?_id=${_id}`, {
+        .get(`https://backend-doctor-production.up.railway.app/admin/getadmin/user/?_id=${_id}`, {
           headers: { Authorization: `Bearer ${authToken}` },
         })
         .then((res) => {
@@ -52,7 +52,7 @@ const DoctorProfile = () => {
           {/* Doctor Image */}
           <div className="img-con w-full sm:w-[250px] md:w-[300px] h-[250px] md:h-[300px] flex justify-center items-center shadow-md shadow-slate-600 rounded-md">
             <img
-              src={`http://localhost:7000/upload/${doctorInfo.profileFileName}`}
+              src={`https://backend-doctor-production.up.railway.app/upload/${doctorInfo.profileFileName}`}
               alt="Doctor"
               className="object-cover w-full h-full rounded-md"
             />

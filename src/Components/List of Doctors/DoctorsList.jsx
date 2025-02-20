@@ -8,7 +8,7 @@ import { useSearchParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import Loader from "../ReusableComp/Loader";
 
-const apiUrl = "http://localhost:7000";
+const apiUrl = "https://backend-doctor-production.up.railway.app";
 
 const Doctors = () => {
   const [nearDoctors, setNearDoctors] = useState([]);

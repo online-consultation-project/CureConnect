@@ -3,7 +3,7 @@ import axios from "axios";
 
 const Payment = () => {
   const handlePayment = async () => {
-    const { data } = await axios.post("http://localhost:7000/api/payment/create-order", {
+    const { data } = await axios.post("https://backend-doctor-production.up.railway.app/api/payment/create-order", {
       amount: 500, // Amount in INR
       currency: "INR",
     });
@@ -15,7 +15,7 @@ const Payment = () => {
       order_id: data.order.id,
       handler: async (response) => {
         // Verify payment
-        const verify = await axios.post("http://localhost:7000/api/payment/verify-payment", {
+        const verify = await axios.post("https://backend-doctor-production.up.railway.app/api/payment/verify-payment", {
           ...response,
           appointmentData: {
             patientName: "John Doe",

@@ -12,7 +12,7 @@ const About = () => {
 
     try {
       const res = await axios.get(
-        `http://localhost:7000/admin/getadmin/user/?_id=${_id}`,
+        `https://backend-doctor-production.up.railway.app/admin/getadmin/user/?_id=${_id}`,
         {
           headers: { Authorization: `Bearer ${authToken}` },
         }
