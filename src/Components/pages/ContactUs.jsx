@@ -40,7 +40,7 @@ export const ContactUs = () => {
     const authToken = localStorage.getItem("token");
     try {
       const response = await axios.post(
-       "http://localhost:7000/user/contact",
+       "https://backend-doctor-production.up.railway.app/user/contact",
         formData,
         {
           headers: { Authorization: `Bearer ${authToken}` },

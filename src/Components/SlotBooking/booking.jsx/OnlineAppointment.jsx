@@ -32,7 +32,7 @@ const OnlineBookingAppointment = () => {
   const fetchDoctorDetails = async () => {
     try {
       await axios
-        .get(`http://localhost:7000/admin/getadmin/user/?_id=${doctorId}`)
+        .get(`https://backend-doctor-production.up.railway.app/admin/getadmin/user/?_id=${doctorId}`)
         .then((res) => {
           setDoctors([res.data]);
           const consultationFee = res.data.consultationFee;
@@ -78,7 +78,7 @@ const OnlineBookingAppointment = () => {
 
     try {
       const orderResponse = await axios.post(
-        "http://localhost:7000/api/payment/create-order",
+        "https://backend-doctor-production.up.railway.app/api/payment/create-order",
         paymentData,
         {
           headers: {
@@ -107,7 +107,7 @@ const OnlineBookingAppointment = () => {
 
             try {
               const verifyResponse = await axios.post(
-                "http://localhost:7000/api/payment/verify-payment",
+                "https://backend-doctor-production.up.railway.app/api/payment/verify-payment",
                 paymentDetails,
                 {
                   headers: {
@@ -136,7 +136,7 @@ const OnlineBookingAppointment = () => {
 
                 // Save appointment to database
                 await axios.post(
-                  "http://localhost:7000/api/zoommetting/create-meeting",
+                  "https://backend-doctor-production.up.railway.app/api/zoommetting/create-meeting",
                   appointmentData,
                   {
                     headers: {
@@ -196,7 +196,7 @@ const OnlineBookingAppointment = () => {
                 >
                   <div className="img-con w-[180px] lg:w-[200px] h-[180px] lg:h-[200px] flex justify-center items-center p-2 shadow-md shadow-slate-600">
                     <img
-                      src={`http://localhost:7000/upload/${doctor.profileFileName}`}
+                      src={`https://backend-doctor-production.up.railway.app/upload/${doctor.profileFileName}`}
                       alt="Doctor"
                       className="object-fill w-full h-full rounded-md"
                     />

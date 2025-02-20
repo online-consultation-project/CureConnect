@@ -13,7 +13,7 @@ const GetProduct = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get("http://localhost:7000/pharmacy/userproductdata", config);
+      const response = await axios.get("https://backend-doctor-production.up.railway.app/pharmacy/userproductdata", config);
       setProducts(response.data.getLimitProduct);
     } catch (error) {
       console.error("Error fetching products:", error);

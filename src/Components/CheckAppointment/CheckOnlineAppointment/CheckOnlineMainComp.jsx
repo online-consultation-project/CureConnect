@@ -14,7 +14,7 @@ const CheckOnlineMain = () => {
   const fetchAppointment = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`http://localhost:7000/api/zoommetting/onlineappointment?userId=${userId}`, {
+      const response = await axios.get(`https://backend-doctor-production.up.railway.app/api/zoommetting/onlineappointment?userId=${userId}`, {
         headers: {
           Authorization: `Bearer ${authToken}`,
         },

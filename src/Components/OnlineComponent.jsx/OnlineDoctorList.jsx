@@ -20,7 +20,7 @@ const OnlineDoctors = () => {
   const fetchDoctors = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("http://localhost:7000/admin/addadmin")
+      const response = await axios.get("https://backend-doctor-production.up.railway.app/admin/addadmin")
     
       setNearDoctors(response.data);
       setFilteredDoctors(response.data);
